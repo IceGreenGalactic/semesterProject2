@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuctionHouse - Register</title>
+
+    <link rel="stylesheet" href="../../dist/css/styles.css">
+    <script src="https://kit.fontawesome.com/db895f6c4c.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <header>
+        <div class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <div class="container-fluid col-12">
+
+                <div class="logo container-fluid col-8 text-center justify-content-center mt-2">
+
+                    <a href="../../">
+                        <img src="../../images/auctionHouse_logo.png" alt="AuctionHouse Logo"
+                            class="img-fluid m-0 col-4">
+                    </a>
+                    <div class="logo-text text-center m-0 ">
+                        <h1> AuctionHouse</h1>
+                        <p>-Bidding made easy-</p>
+                    </div>
+
+                </div>
+
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse col-12" id="navbarNav">
+                    <ul class="navbar-nav col-3 ms-auto">
+                        <!-- For larger devices -->
+                        <li class="nav-item text-center d-none d-lg-block">
+                            <a class="nav-link m-auto" href="./">
+                                <i class="fas fa-user"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li class="nav-item text-center d-none d-lg-block">
+                            <a class="nav-link m-auto" href="../../index.html">
+                                <i class="fa-solid fa-house"></i>
+                                Home
+                            </a>
+                        </li>
+                        <!-- Items in navbar for larger devices -->
+                        <li class="nav-item dropdown d-none d-lg-inline">
+                            <!-- Dropdown for larger devices -->
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="../../listings/createListing/"><i
+                                            class="fas fa-handshake"></i>
+                                        Sell</a></li>
+                                <li><a class="dropdown-item" href="info_selling.html"><i class="fa-solid fa-gears"></i>
+                                        Settings</a></li>
+                                <li><a class="dropdown-item" href="info_selling.html"><i
+                                            class="fa-solid fa-user-xmark text-start"></i> Logout</a></li>
+                            </ul>
+                        </li>
+                        <!-- Items in navbar for smaller devices -->
+                        <li class="nav-item text-start border-bottom d-lg-none py-2">
+                            <a class="nav-link m-auto" href="./profile/">
+                                <i class="fas fa-user"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li class="nav-item text-start border-bottom d-lg-none py-2">
+                            <a class="nav-link m-auto" href="../../index.html">
+                                <i class="fa-solid fa-house"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item text-start border-bottom d-lg-none py-2">
+                            <a class="nav-link m-auto" href="../../listings/createListing/">
+                                <i class="fas fa-handshake"></i>
+                                Sell
+                            </a>
+                        </li>
+                        <li class="nav-item text-start border-bottom d-lg-none py-2">
+                            <a class="nav-link m-auto" href="info_selling.html">
+                                <i class="fa-solid fa-gears"></i>
+                                Settings
+                            </a>
+                        </li>
+                        <li class="nav-item text-start border-bottom d-lg-none py-2">
+                            <a class="nav-link m-auto" href="info_selling.html">
+                                <i class="fa-solid fa-user-xmark text-start"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Registration Form -->
+        <div class="container my-4">
+            <div class="card col-md-6 m-auto">
+                <div class="card-body">
+                    <h2 class="text-center headline-text">Register</h2>
+                    <form>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="avatar" class="form-label">Avatar</label>
+                            <input type="url" class="form-control" id="avatar" placeholder="Enter a url">
+                        </div>
+                        <div class=" text-center">
+                            <button type="submit" class="btn btn-primary mb-4">Register</button>
+                            <p class="text-secondary">allready have a user  <a href="../"><span class="text-secondary">Login</span></a>
+                            </p>
+                           </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer border-top pt-3">
+        <div class="container">
+            <p>&copy; 2024 AuctionHouse. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

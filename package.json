@@ -5,9 +5,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sass src/scss:dist/css",
+    "format": "prettier --write **/*.js",
     "watch": "sass --watch src/scss:dist/css",
     "dev": "npm run watch & live-server",
-    "start": "npm run live-server"
+    "start": "npm run live-server",
+    "prepare": "husky install"
   },
   "keywords": [
     "CSS",
@@ -23,7 +25,23 @@
     "bootstrap": "^5.3.3"
   },
   "devDependencies": {
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "sass": "^1.75.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.html": [
+      "prettier --write"
+    ],
+    "*.scss": [
+      "prettier --write"
+    ]
   }
 }
+
+

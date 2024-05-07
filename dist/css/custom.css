@@ -24,6 +24,11 @@ h2, h3, h4, h5, p, li {
   font-size: 25px;
 }
 
+.headline-text {
+  color: #8B4513;
+  font-family: "Cinzel";
+}
+
 .logo {
   position: absolute;
   top: 10px;
@@ -53,26 +58,25 @@ ul > .border-bottom {
   font-size: 14px;
 }
 
-.footer {
-  background-color: #F8F9FA;
+.form-control {
+  border-color: #F2D7B6;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.headline-text {
-  color: #8B4513;
-  font-family: "Cinzel";
+.footer {
+  background-color: #F8F9FA;
 }
 
 .nav-link {
   color: #372727;
 }
 
-.form-control {
-  border-color: #F2D7B6;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 .login-text {
   color: #8B4513;
+}
+
+.remainingTime {
+  color: red;
 }
 
 /* Buttons */
@@ -82,8 +86,6 @@ ul > .border-bottom {
   color: #fff;
 }
 
-.remainingTime {
-  color: red;
-}
+/*testing*/
 
 /*# sourceMappingURL=custom.css.map */

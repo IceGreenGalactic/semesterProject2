@@ -1,108 +1,106 @@
-$primary-color: #8B4513; // Brown
-$decor-color: #FFD700; // Gold
-$background-color: #F8F9FA; // Beige
+$primary-color: #8b4513; // Brown
+$decor-color: #ffd700; // Gold
+$background-color: #f8f9fa; // Beige
 $test-color: #372727;
-$secondary-color: #F2D7B6;
-$box-shaddow:  0px 4px 6px rgba(0, 0, 0, 0.1); 
+$secondary-color: #f2d7b6;
+$box-shaddow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
-h2,h3,h4,h5,p, li{
-    font-family: "Open+Sans";
+h2,
+h3,
+h4,
+h5,
+p,
+li {
+  font-family: "Open+Sans";
 }
-
 
 // Header styles
 .navbar {
-    background-color: $primary-color;
-    min-height: 150px;
-    position: relative;
+  background-color: $primary-color;
+  min-height: 150px;
+  position: relative;
 }
-.navbar-nav{
-    background-color: $background-color;
-}
-
-.logo-text{
-    font-family: "Cinzel";
-    color: $primary-color;
-    font-size: 15px;
-    
-    
-    h1{
-        color: $test-color;
-        font-size: 25px;
-    }
+.navbar-nav {
+  background-color: $background-color;
 }
 
-.logo{
-    position: absolute;
-    top: 10px;
-    margin-left: 50%;
-    translate: -50%;
-    width: min-content;
+.logo-text {
+  font-family: "Cinzel";
+  color: $primary-color;
+  font-size: 15px;
+
+  h1 {
+    color: $test-color;
+    font-size: 25px;
+  }
 }
 
-ul>.border-bottom {
-    border-bottom: 1px solid $decor-color !important;
+.headline-text {
+  color: $primary-color;
+  font-family: "Cinzel";
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  margin-left: 50%;
+  translate: -50%;
+  width: min-content;
+}
+
+ul > .border-bottom {
+  border-bottom: 1px solid $decor-color !important;
 }
 
 // Search bar styles
 .form-control {
-    background-color: $background-color;
+  background-color: $background-color;
 }
 
 //  card styles
 .card {
-    background-color: $background-color;
-    border: 1px solid $decor-color;
-    box-shadow: $box-shaddow;
+  background-color: $background-color;
+  border: 1px solid $decor-color;
+  box-shadow: $box-shaddow;
 }
 
-.item-card{
-    font-size: 12px;
-    h5{
-        font-size: 14px;
-    }
+.item-card {
+  font-size: 12px;
+  h5 {
+    font-size: 14px;
+  }
 }
-// Footer styles
+
+.form-control {
+  border-color: $secondary-color;
+  box-shadow: $box-shaddow;
+}
+
 .footer {
-    background-color: $background-color;
-}
-
-.headline-text{
-    color: $primary-color;
-    font-family: "Cinzel";
+  background-color: $background-color;
 }
 
 .nav-link {
-    color: $test-color;
+  color: $test-color;
 }
 
-
-
-.form-control {
-    border-color: $secondary-color; 
-    box-shadow: $box-shaddow;
+.login-text {
+  color: $primary-color;
 }
 
-
-
-.login-text  {
-    color: $primary-color; 
+.remainingTime {
+  color: red;
 }
 
 /* Buttons */
 .btn-primary {
-    background-color: $primary-color; 
-    border-color: $primary-color; 
-    color: #fff; 
+  background-color: $primary-color;
+  border-color: $primary-color;
+  color: #fff;
 }
 
-.remainingTime{
-    color: red;
-}
-
-
-
+/*testing*/

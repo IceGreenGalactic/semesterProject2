@@ -6,29 +6,20 @@
     <title>AuctionHouse - Home</title>
 
     <link rel="stylesheet" href="./dist/css/styles.css" />
-    <script
-      src="https://kit.fontawesome.com/db895f6c4c.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/db895f6c4c.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
   </head>
 
   <body class="d-flex flex-column min-vh-100">
     <header>
-      <div class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <div class="container-fluid col-12">
-          <div
-            class="logo container-fluid col-8 text-center justify-content-center mt-2"
-          >
-            <a href="./">
-              <img
-                src="./images/auctionHouse_logo.png"
-                alt="AuctionHouse Logo"
-                class="img-fluid m-0 col-4"
-              />
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid m-auto">
+          <div class="logo container-fluid col-8 text-center justify-content-center mt-2">
+            <a class="navbar-brand" href="../../">
+              <img src=".././images/auctionHouse_logo.png" alt="AuctionHouse Logo" class="img-fluid m-0 col-4" />
             </a>
             <div class="logo-text text-center m-0">
-              <h1>AuctionHouse</h1>
+              <h2>AuctionHouse</h2>
               <p>-Bidding made easy-</p>
             </div>
           </div>
@@ -46,105 +37,131 @@
           </button>
 
           <div class="collapse navbar-collapse col-12" id="navbarNav">
-            <ul class="navbar-nav col-3 ms-auto">
-              <!-- For larger devices -->
-              <li class="nav-item text-center d-none d-lg-block">
-                <a class="nav-link m-auto" href="./profile/">
-                  <i class="fas fa-user"></i>
-                  Profile
-                </a>
-              </li>
-              <li class="nav-item text-center d-none d-lg-block">
-                <a class="nav-link m-auto" href="./">
-                  <i class="fa-solid fa-house"></i>
-                  Home
-                </a>
-              </li>
-              <!-- Items in navbar for larger devices -->
-              <li class="nav-item dropdown d-none d-lg-inline">
-                <!-- Dropdown for larger devices -->
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Menu
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <a class="dropdown-item" href="./listings/createListing/"
-                      ><i class="fas fa-handshake"></i> Sell</a
+            <div class="col-12 ms-auto col-sm-3 col-lg-12">
+              <ul class="navbar-nav">
+                <li class="nav-item text-center d-none d-lg-block">
+                  <a class="nav-link m-auto" href="../../profile/">
+                    <i class="fas fa-user"></i>
+                    Profile
+                  </a>
+                </li>
+
+                <li class="nav-item text-center d-none d-lg-block">
+                  <a class="nav-link m-auto" href="../../">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                  </a>
+                </li>
+                <!-- Main Dropdown Menu -->
+                <li class="nav-item dropdown d-none d-lg-block">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Menu
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <!-- Nested Dropdown Submenu -->
+                    <a class="dropdown-item" href="../../info/"> <i class="fas fa-info-circle"></i>About</a>
+                    <a
+                      class="dropdown-item dropdown-toggle"
+                      href="#"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#submenu"
+                      aria-expanded="false"
+                      aria-controls="submenu"
+                      onclick="event.stopPropagation();"
                     >
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#"
-                      ><i class="fa-solid fa-gears"></i> Settings</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="./index.html"
-                      ><i class="fa-solid fa-user-xmark text-start"></i>
-                      Logout</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <!-- Items in navbar for smaller devices -->
-              <li class="nav-item text-start border-bottom d-lg-none py-2">
-                <a class="nav-link m-auto" href="./profile/">
-                  <i class="fas fa-user"></i>
-                  Profile
-                </a>
-              </li>
-              <li class="nav-item text-start border-bottom d-lg-none py-2">
-                <a class="nav-link m-auto" href="./index.html">
-                  <i class="fa-solid fa-house"></i>
-                  Home
-                </a>
-              </li>
-              <li class="nav-item text-start border-bottom d-lg-none py-2">
-                <a class="nav-link m-auto" href="./listings/createListing/">
-                  <i class="fas fa-handshake"></i>
-                  Sell
-                </a>
-              </li>
-              <li class="nav-item text-start border-bottom d-lg-none py-2">
-                <a class="nav-link m-auto" href="#">
-                  <i class="fa-solid fa-gears"></i>
-                  Settings
-                </a>
-              </li>
-              <li class="nav-item text-start border-bottom d-lg-none py-2">
-                <a class="nav-link m-auto" href="./">
-                  <i class="fa-solid fa-user-xmark text-start"></i>
-                  Logout
-                </a>
-              </li>
-            </ul>
+                      <i class="fas fa-handshake"></i> Buy and Sell
+                    </a>
+                    <div class="collapse ms-5" id="submenu">
+                      <a class="dropdown-item" href="../../info/sell/">How to sell</a>
+                      <a class="dropdown-item" href="../../info/buy/">How to buy</a>
+                      <a class="dropdown-item" href="../../info/pay/">How to pay</a>
+                      <a class="dropdown-item" href="../../info/ship/">How to ship</a>
+                    </div>
+                    <a class="dropdown-item" href="#"><i class="fa-solid fa-gears"></i> Settings</a>
+                    <a class="dropdown-item" href="../../"><i class="fa-solid fa-user-xmark text-start"></i> Logout</a>
+                  </div>
+                </li>
+                <!-- Items in navbar for smaller devices -->
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../profile/">
+                    <i class="fas fa-user"></i>
+                    Profile
+                  </a>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                  </a>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../info/">
+                    <i class="fas fa-info-circle"></i>
+                    About
+                  </a>
+                </li>
+                <li class="nav-item dropdown border-bottom py-2 d-lg-none">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-handshake"></i> Buy and Sell
+                  </a>
+                  <div class="dropdown-menu border-0 bg-light" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item py-2" href="../../info/sell/">How to sell</a>
+                    <a class="dropdown-item py-2" href="../../info/buy/">How to buy</a>
+                    <a class="dropdown-item py-2" href="../../info/pay/">How to pay</a>
+                    <a class="dropdown-item py-2" href="../../info/ship/">How to ship</a>
+                  </div>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="#">
+                    <i class="fa-solid fa-gears"></i>
+                    Settings
+                  </a>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../">
+                    <i class="fa-solid fa-user-xmark text-start"></i>
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
+      </nav>
     </header>
 
     <main class="d-flex flex-column min-vh-100 mb-4">
       <div class="bg-light py-5">
         <div class="container-fluid col-11 col-md-8 col-lg-5 m-auto">
-          <div class="row justify-content-between align-items-bottom m-auto">
-            <div class="col-2">
-              <h3>
-                <a class="nav-link headline-text" href="./listings/">
-                  Listings</a
-                >
+          <div class="row justify-content-between align-items-center m-auto">
+            <div class="col-12 col-sm-auto">
+              <h3 class="text-center text-sm-start">
+                <a class="text-decoration-none headline-text" href="./listings/">Listings</a>
               </h3>
             </div>
-            <div class="col-2">
-              <h3><a class="nav-link headline-text" href="#">Buy</a></h3>
+            <div class="col-12 col-sm-auto">
+              <h3 class="text-center text-sm-start">
+                <a class="text-decoration-none headline-text" href="./info/buyPage/">Buy</a>
+              </h3>
             </div>
-            <div class="col-2">
-              <h3><a class="nav-link headline-text" href="#">Sell</a></h3>
+            <div class="col-12 col-sm-auto">
+              <h3 class="text-center text-sm-start">
+                <a class="text-decoration-none headline-text" href="./info/sellPage/">Sell</a>
+              </h3>
             </div>
           </div>
         </div>
@@ -158,17 +175,13 @@
               <h1 class="headline-text mb-4">Welcome to AuctionHouse</h1>
 
               <p class="lead">
-                The perfect place to buy and sell auction items. Find unique
-                treasures or list your own items for auction.
+                The perfect place to buy and sell auction items. Find unique treasures or list your own items for
+                auction.
               </p>
               <p class="lead">Join our community today!</p>
             </div>
             <div class="col-lg-6 m-auto">
-              <img
-                src="../images/banner.JPG"
-                class="banner-image img-fluid"
-                alt="Item Image"
-              />
+              <img src="./images/banner.JPG" class="banner-image img-fluid" alt="Item Image" />
             </div>
           </div>
         </div>
@@ -181,48 +194,31 @@
           <div class="row">
             <div class="col-md-4 mb-4">
               <div class="card h-100">
-                <img
-                  src="../images/featured_listing_1.jpg"
-                  class="card-img-top"
-                  alt="Featured Listing"
-                />
+                <img src="./images/forSale.jpg" class="card-img-top w-50 m-auto" alt="Featured Listing" />
                 <div class="card-body">
                   <h5 class="card-title">Featured Item 1</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                   <a href="#" class="btn btn-primary">View Listing</a>
                 </div>
               </div>
             </div>
             <div class="col-md-4 mb-4">
               <div class="card h-100">
-                <img
-                  src="../images/featured_listing_2.jpg"
-                  class="card-img-top"
-                  alt="Featured Listing"
-                />
+                <img src="./images/forSale.jpg" class="card-img-top w-50 m-auto" alt="Featured Listing" />
                 <div class="card-body">
                   <h5 class="card-title">Featured Item 2</h5>
-                  <p class="card-text">
-                    Nullam tincidunt lacinia augue nec tempus.
-                  </p>
+                  <p class="card-text">Nullam tincidunt lacinia augue nec tempus.</p>
                   <a href="#" class="btn btn-primary">View Listing</a>
                 </div>
               </div>
             </div>
             <div class="col-md-4 mb-4">
               <div class="card h-100">
-                <img
-                  src="../images/featured_listing_3.jpg"
-                  class="card-img-top"
-                  alt="Featured Listing"
-                />
+                <img src="./images/forSale.jpg" class="card-img-top w-50 m-auto" alt="Featured Listing" />
                 <div class="card-body">
                   <h5 class="card-title">Featured Item 3</h5>
                   <p class="card-text">
-                    Pellentesque habitant morbi tristique senectus et netus et
-                    malesuada fames ac turpis egestas.
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
                   </p>
                   <a href="#" class="btn btn-primary">View Listing</a>
                 </div>
@@ -240,15 +236,11 @@
             <div class="col-md-4 mb-4">
               <div class="card border-0">
                 <div class="card-body text-center">
-                  <img
-                    src="../images/ProfileImg1.JPG"
-                    class="rounded-circle mb-3 col-4"
-                    alt="User Avatar"
-                  />
+                  <img src="./images/ProfileImg1.JPG" class="rounded-circle mb-3 col-4" alt="User Avatar" />
                   <h5 class="card-title">John Doe</h5>
                   <p class="card-text">
-                    "AuctionHouse has made buying and selling items so
-                    convenient for me. I've found some amazing deals here!"
+                    "AuctionHouse has made buying and selling items so convenient for me. I've found some amazing deals
+                    here!"
                   </p>
                 </div>
               </div>
@@ -256,15 +248,10 @@
             <div class="col-md-4 mb-4">
               <div class="card border-0">
                 <div class="card-body text-center">
-                  <img
-                    src="../images/ProfileImg1.JPG"
-                    class="rounded-circle mb-3 col-4"
-                    alt="User Avatar"
-                  />
+                  <img src="./images/ProfileImg1.JPG" class="rounded-circle mb-3 col-4" alt="User Avatar" />
                   <h5 class="card-title">Jane Smith</h5>
                   <p class="card-text">
-                    "I love how easy it is to navigate through AuctionHouse. The
-                    variety of listings is impressive!"
+                    "I love how easy it is to navigate through AuctionHouse. The variety of listings is impressive!"
                   </p>
                 </div>
               </div>
@@ -272,15 +259,11 @@
             <div class="col-md-4 mb-4">
               <div class="card border-0">
                 <div class="card-body text-center">
-                  <img
-                    src="../images/ProfileImg1.JPG"
-                    class="rounded-circle mb-3 col-4"
-                    alt="User Avatar"
-                  />
+                  <img src="./images/ProfileImg1.JPG" class="rounded-circle mb-3 col-4" alt="User Avatar" />
                   <h5 class="card-title">Alice Johnson</h5>
                   <p class="card-text">
-                    "As a seller, I appreciate the secure payment system
-                    AuctionHouse provides. It gives me peace of mind."
+                    "As a seller, I appreciate the secure payment system AuctionHouse provides. It gives me peace of
+                    mind."
                   </p>
                 </div>
               </div>
@@ -296,48 +279,31 @@
           <div class="row">
             <div class="col-md-4 mb-4">
               <div class="card h-100">
-                <img
-                  src="../images/upcoming_auction_1.jpg"
-                  class="card-img-top"
-                  alt="Upcoming Auction"
-                />
+                <img src="./images/watch4sale.jpg" class="card-img-top w-50 m-auto" alt="Upcoming Auction" />
                 <div class="card-body">
                   <h5 class="card-title">Auction Item 1</h5>
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                   <a href="#" class="btn btn-primary">Learn More</a>
                 </div>
               </div>
             </div>
             <div class="col-md-4 mb-4">
               <div class="card h-100">
-                <img
-                  src="../images/upcoming_auction_2.jpg"
-                  class="card-img-top"
-                  alt="Upcoming Auction"
-                />
+                <img src="./images/watch4sale.jpg" class="card-img-top w-50 m-auto" alt="Upcoming Auction" />
                 <div class="card-body">
                   <h5 class="card-title">Auction Item 2</h5>
-                  <p class="card-text">
-                    Nullam tincidunt lacinia augue nec tempus.
-                  </p>
+                  <p class="card-text">Nullam tincidunt lacinia augue nec tempus.</p>
                   <a href="#" class="btn btn-primary">Learn More</a>
                 </div>
               </div>
             </div>
             <div class="col-md-4 mb-4">
               <div class="card h-100">
-                <img
-                  src="../images/upcoming_auction_3.jpg"
-                  class="card-img-top"
-                  alt="Upcoming Auction"
-                />
+                <img src="./images/watch4sale.jpg" class="card-img-top w-50 m-auto" alt="Upcoming Auction" />
                 <div class="card-body">
                   <h5 class="card-title">Auction Item 3</h5>
                   <p class="card-text">
-                    Pellentesque habitant morbi tristique senectus et netus et
-                    malesuada fames ac turpis egestas.
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
                   </p>
                   <a href="#" class="btn btn-primary">Learn More</a>
                 </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AuctionHouse - create Listing</title>
+    <title>AuctionHouse - Start selling</title>
 
     <link rel="stylesheet" href="../../dist/css/styles.css" />
     <script src="https://kit.fontawesome.com/db895f6c4c.js" crossorigin="anonymous"></script>
@@ -66,7 +66,7 @@
                   </a>
                   <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <!-- Nested Dropdown Submenu -->
-                    <a class="dropdown-item" href="../../info/"> <i class="fas fa-info-circle"></i>About</a>
+                    <a class="dropdown-item" href="../"> <i class="fas fa-info-circle"></i>About</a>
                     <a
                       class="dropdown-item dropdown-toggle"
                       href="#"
@@ -79,10 +79,10 @@
                       <i class="fas fa-handshake"></i> Buy and Sell
                     </a>
                     <div class="collapse ms-5" id="submenu">
-                      <a class="dropdown-item" href="../../info/sell/">How to sell</a>
-                      <a class="dropdown-item" href="../../info/buy/">How to buy</a>
-                      <a class="dropdown-item" href="../../info/pay/">How to pay</a>
-                      <a class="dropdown-item" href="../../info/ship/">How to ship</a>
+                      <a class="dropdown-item" href="../sell/">How to sell</a>
+                      <a class="dropdown-item" href="../buy/">How to buy</a>
+                      <a class="dropdown-item" href="../pay/">How to pay</a>
+                      <a class="dropdown-item" href="../ship/">How to ship</a>
                     </div>
                     <a class="dropdown-item" href="#"><i class="fa-solid fa-gears"></i> Settings</a>
                     <a class="dropdown-item" href="../../"><i class="fa-solid fa-user-xmark text-start"></i> Logout</a>
@@ -102,7 +102,7 @@
                   </a>
                 </li>
                 <li class="nav-item text-start border-bottom d-lg-none py-2">
-                  <a class="nav-link m-auto" href="../../info/">
+                  <a class="nav-link m-auto" href="../">
                     <i class="fas fa-info-circle"></i>
                     About
                   </a>
@@ -119,10 +119,10 @@
                     <i class="fas fa-handshake"></i> Buy and Sell
                   </a>
                   <div class="dropdown-menu border-0 bg-light" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item py-2" href="../../info/sell/">How to sell</a>
-                    <a class="dropdown-item py-2" href="../../info/buy/">How to buy</a>
-                    <a class="dropdown-item py-2" href="../../info/pay/">How to pay</a>
-                    <a class="dropdown-item py-2" href="../../info/ship/">How to ship</a>
+                    <a class="dropdown-item py-2" href="../sell/">How to sell</a>
+                    <a class="dropdown-item py-2" href="../buy/">How to buy</a>
+                    <a class="dropdown-item py-2" href="../pay/">How to pay</a>
+                    <a class="dropdown-item py-2" href="../ship/">How to ship</a>
                   </div>
                 </li>
                 <li class="nav-item text-start border-bottom d-lg-none py-2">
@@ -144,32 +144,69 @@
       </nav>
     </header>
 
-    <main class="d-flex flex-column min-vh-100">
-      <div class="container my-5 p-3 col-10 col-lg-6 card">
-        <h2 class="text-center my-4 headline-text">Create a New Listing</h2>
-        <form id="listingForm">
-          <div class="mb-3">
-            <label for="title" class="form-label">Title *</label>
-            <input type="text" class="form-control" id="title" required />
+    <main class="my-3">
+      <h1 class="headline-text text-center mt-3">Start selling</h1>
+      <div class="container card col-10 col-sm-12 col-lg-8 col-xl-6 py-3 my-5">
+        <div class="row align-items-center g-5">
+          <div class="col-7 col-sm-6 col-md-5 mx-auto">
+            <img src="../../images/watch4sale.jpg" alt="Image" class="img-fluid card-img" />
           </div>
-          <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" id="description" rows="3"></textarea>
+
+          <div class="col-11 mx-auto col-sm-6 col-md-7 text-center text-sm-start card-text py-2">
+            <h2 class="headline-text">Start Selling Today!</h2>
+            <p>do you have a lot of things lying around??</p>
+            <p>Ready to turn your items into cash? Get started now and join our vibrant marketplace!</p>
+            <p>
+              Add Your Item: Transform your unused treasures into valuable assets. Click the button below to start
+              listing your items effortlessly.
+            </p>
+            <a href="../../listings/createListing/" class="btn btn-primary">Start Selling</a>
           </div>
-          <div class="mb-3">
-            <label for="tags" class="form-label">Tags (comma-separated)</label>
-            <input type="text" class="form-control" id="tags" />
+        </div>
+      </div>
+
+      <div class="container card col-10 col-sm-12 col-lg-8 col-xl-6 py-3 my-5">
+        <div class="row align-items-center g-5">
+          <div class="col-7 col-sm-6 col-md-5 mx-auto order-sm-2">
+            <img src="../../images/forSale.jpg" alt="Image" class="img-fluid card-img" />
           </div>
-          <div class="mb-3">
-            <label for="media" class="form-label">Image URLs (comma-separated)</label>
-            <input type="text" class="form-control" id="media" />
+
+          <div class="col-11 mx-auto col-sm-6 col-md-7 text-center text-sm-start card-text py-2 order-sm-1">
+            <h2 class="headline-text">Start Your Selling Journey</h2>
+            <p>
+              Ready to turn your items into cash? Dive into our comprehensive guide and learn how to master the art of
+              selling on AuctionHouse.
+            </p>
+            <p class="m-0"><strong> Explore:</strong></p>
+            <ul class="list-unstyled">
+              <li>Creating compelling listings</li>
+              <li>Optimizing your sales strategy</li>
+              <li>Maximizing your earnings</li>
+              <li>And much more...</li>
+            </ul>
+            <a href="../../info/sell/" class="btn btn-primary">Discover Selling Tips</a>
           </div>
-          <div class="mb-3">
-            <label for="endsAt" class="form-label">Ends At (Date and Time) *</label>
-            <input type="datetime-local" class="form-control" id="endsAt" required />
+        </div>
+      </div>
+
+      <div class="container card col-10 col-sm-12 col-lg-8 col-xl-6 py-3 my-5">
+        <div class="row align-items-center g-5">
+          <div class="col-7 col-sm-6 col-md-5 mx-auto">
+            <img src="../../images/shipping.jpg" alt="Image" class="img-fluid card-img" />
           </div>
-          <button id="createListingBtn" type="submit" class="btn btn-primary">Create Listing</button>
-        </form>
+          <div class="col-11 mx-auto col-sm-6 col-md-7 text-center text-sm-start card-text py-2">
+            <h2 class="headline-text">Master the Art of Shipping</h2>
+            <p>Ensure a seamless shipping experience for your buyers and sellers with our comprehensive guide.</p>
+            <p class="m-0"><strong> Explore:</strong></p>
+            <ul class="list-unstyled">
+              <li>Shipping best practices for buyers</li>
+              <li>Essential tips for sellers</li>
+              <li>How to handle tracking and delivery</li>
+              <li>And much more...</li>
+            </ul>
+            <a href="../../info/ship/" class="btn btn-primary">Discover Shipping Tips</a>
+          </div>
+        </div>
       </div>
     </main>
     <footer class="footer border-top pt-3">

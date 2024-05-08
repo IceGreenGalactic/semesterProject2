@@ -20,20 +20,20 @@ li {
 
 // Header styles
 .navbar {
-  background-color: $primary-color;
   min-height: 150px;
-  position: relative;
-}
-.navbar-nav {
-  background-color: $background-color;
 }
 
+.logo {
+  margin-left: 50%;
+  translate: -50%;
+  width: min-content;
+}
 .logo-text {
   font-family: "Cinzel";
   color: $primary-color;
   font-size: 15px;
 
-  h1 {
+  h2 {
     color: $test-color;
     font-size: 25px;
   }
@@ -44,16 +44,9 @@ li {
   font-family: "Cinzel";
 }
 
-.logo {
-  position: absolute;
-  top: 10px;
-  margin-left: 50%;
-  translate: -50%;
-  width: min-content;
-}
-
-ul > .border-bottom {
-  border-bottom: 1px solid $decor-color !important;
+ul > .border-bottom,
+.dropdown-item {
+  border-bottom: 1px solid $secondary-color !important;
 }
 
 // Search bar styles
@@ -102,5 +95,3 @@ ul > .border-bottom {
   border-color: $primary-color;
   color: #fff;
 }
-
-/*testing*/

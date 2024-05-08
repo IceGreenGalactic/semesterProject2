@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AuctionHouse - create Listing</title>
+    <title>AuctionHouse - How to buy</title>
 
     <link rel="stylesheet" href="../../dist/css/styles.css" />
     <script src="https://kit.fontawesome.com/db895f6c4c.js" crossorigin="anonymous"></script>
@@ -66,7 +66,7 @@
                   </a>
                   <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <!-- Nested Dropdown Submenu -->
-                    <a class="dropdown-item" href="../../info/"> <i class="fas fa-info-circle"></i>About</a>
+                    <a class="dropdown-item" href="../"> <i class="fas fa-info-circle"></i>About</a>
                     <a
                       class="dropdown-item dropdown-toggle"
                       href="#"
@@ -79,10 +79,10 @@
                       <i class="fas fa-handshake"></i> Buy and Sell
                     </a>
                     <div class="collapse ms-5" id="submenu">
-                      <a class="dropdown-item" href="../../info/sell/">How to sell</a>
-                      <a class="dropdown-item" href="../../info/buy/">How to buy</a>
-                      <a class="dropdown-item" href="../../info/pay/">How to pay</a>
-                      <a class="dropdown-item" href="../../info/ship/">How to ship</a>
+                      <a class="dropdown-item" href="../sell/">How to sell</a>
+                      <a class="dropdown-item" href="../buy/">How to buy</a>
+                      <a class="dropdown-item" href="../pay/">How to pay</a>
+                      <a class="dropdown-item" href="../ship/">How to ship</a>
                     </div>
                     <a class="dropdown-item" href="#"><i class="fa-solid fa-gears"></i> Settings</a>
                     <a class="dropdown-item" href="../../"><i class="fa-solid fa-user-xmark text-start"></i> Logout</a>
@@ -102,7 +102,7 @@
                   </a>
                 </li>
                 <li class="nav-item text-start border-bottom d-lg-none py-2">
-                  <a class="nav-link m-auto" href="../../info/">
+                  <a class="nav-link m-auto" href="../">
                     <i class="fas fa-info-circle"></i>
                     About
                   </a>
@@ -119,10 +119,10 @@
                     <i class="fas fa-handshake"></i> Buy and Sell
                   </a>
                   <div class="dropdown-menu border-0 bg-light" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item py-2" href="../../info/sell/">How to sell</a>
-                    <a class="dropdown-item py-2" href="../../info/buy/">How to buy</a>
-                    <a class="dropdown-item py-2" href="../../info/pay/">How to pay</a>
-                    <a class="dropdown-item py-2" href="../../info/ship/">How to ship</a>
+                    <a class="dropdown-item py-2" href="../sell/">How to sell</a>
+                    <a class="dropdown-item py-2" href="../buy/">How to buy</a>
+                    <a class="dropdown-item py-2" href="../pay/">How to pay</a>
+                    <a class="dropdown-item py-2" href="../ship/">How to ship</a>
                   </div>
                 </li>
                 <li class="nav-item text-start border-bottom d-lg-none py-2">
@@ -145,31 +145,39 @@
     </header>
 
     <main class="d-flex flex-column min-vh-100">
-      <div class="container my-5 p-3 col-10 col-lg-6 card">
-        <h2 class="text-center my-4 headline-text">Create a New Listing</h2>
-        <form id="listingForm">
-          <div class="mb-3">
-            <label for="title" class="form-label">Title *</label>
-            <input type="text" class="form-control" id="title" required />
-          </div>
-          <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" id="description" rows="3"></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="tags" class="form-label">Tags (comma-separated)</label>
-            <input type="text" class="form-control" id="tags" />
-          </div>
-          <div class="mb-3">
-            <label for="media" class="form-label">Image URLs (comma-separated)</label>
-            <input type="text" class="form-control" id="media" />
-          </div>
-          <div class="mb-3">
-            <label for="endsAt" class="form-label">Ends At (Date and Time) *</label>
-            <input type="datetime-local" class="form-control" id="endsAt" required />
-          </div>
-          <button id="createListingBtn" type="submit" class="btn btn-primary">Create Listing</button>
-        </form>
+      <div class="container mt-5 card col-10 col-lg-6 m-auto">
+        <div class="card-body col-11 m-auto">
+          <h1 class="mt-4 headline-text text-center">How to Buy</h1>
+          <p>
+            Purchasing items on AuctionHouse is simple and accessible to registered users. Follow these steps to place a
+            bid and acquire your desired items:
+          </p>
+          <ol>
+            <li>
+              <strong>Browse Listings:</strong> Explore the available listings to find items that catch your interest.
+            </li>
+            <li>
+              <strong>Place Bid:</strong> Once you've found an item you wish to bid on, enter your bid amount and submit
+              it. Remember, only registered users can place bids.
+            </li>
+            <li>
+              <strong>Monitor Bids:</strong> Keep an eye on the bidding activity to stay informed about the status of
+              your bids.
+            </li>
+            <li>
+              <strong>Win Auction:</strong> If your bid is the highest when the auction ends, you'll secure the item.
+            </li>
+            <li>
+              <strong>Complete Transaction:</strong> Follow the provided instructions to finalize the transaction and
+              receive your item.
+            </li>
+          </ol>
+          <p>
+            As a registered user, you'll receive 1000 credits upon joining AuctionHouse, which you can use for bidding.
+            Additional credits can be earned by selling items on the platform. Enjoy the thrill of bidding and
+            discovering unique treasures on AuctionHouse!
+          </p>
+        </div>
       </div>
     </main>
     <footer class="footer border-top pt-3">

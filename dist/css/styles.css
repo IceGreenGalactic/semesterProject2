@@ -12590,54 +12590,55 @@ textarea.form-control-lg {
   --bs-dropdown-header-color: #adb5bd;
 }
 
-h2, .h2, h3, .h3, h4, .h4, h5, .h5, p, li {
+h2, .h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+p,
+li {
   font-family: "Open+Sans";
 }
 
 .navbar {
-  background-color: #8B4513;
   min-height: 150px;
-  position: relative;
-}
-
-.navbar-nav {
-  background-color: #F8F9FA;
-}
-
-.logo-text {
-  font-family: "Cinzel";
-  color: #8B4513;
-  font-size: 15px;
-}
-.logo-text h1, .logo-text .h1 {
-  color: #372727;
-  font-size: 25px;
-}
-
-.headline-text {
-  color: #8B4513;
-  font-family: "Cinzel";
 }
 
 .logo {
-  position: absolute;
-  top: 10px;
   margin-left: 50%;
   translate: -50%;
   width: min-content;
 }
 
-ul > .border-bottom {
-  border-bottom: 1px solid #FFD700 !important;
+.logo-text {
+  font-family: "Cinzel";
+  color: #8b4513;
+  font-size: 15px;
+}
+.logo-text h2, .logo-text .h2 {
+  color: #372727;
+  font-size: 25px;
+}
+
+.headline-text {
+  color: #8b4513;
+  font-family: "Cinzel";
+}
+
+ul > .border-bottom,
+.dropdown-item {
+  border-bottom: 1px solid #f2d7b6 !important;
 }
 
 .form-control {
-  background-color: #F8F9FA;
+  background-color: #f8f9fa;
 }
 
 .card {
-  background-color: #F8F9FA;
-  border: 1px solid #FFD700;
+  background-color: #f8f9fa;
+  border: 1px solid #ffd700;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -12649,12 +12650,12 @@ ul > .border-bottom {
 }
 
 .form-control {
-  border-color: #F2D7B6;
+  border-color: #f2d7b6;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .footer {
-  background-color: #F8F9FA;
+  background-color: #f8f9fa;
 }
 
 .nav-link {
@@ -12662,7 +12663,7 @@ ul > .border-bottom {
 }
 
 .login-text {
-  color: #8B4513;
+  color: #8b4513;
 }
 
 .remainingTime {
@@ -12671,11 +12672,9 @@ ul > .border-bottom {
 
 /* Buttons */
 .btn-primary {
-  background-color: #8B4513;
-  border-color: #8B4513;
+  background-color: #8b4513;
+  border-color: #8b4513;
   color: #fff;
 }
-
-/*testing*/
 
 /*# sourceMappingURL=styles.css.map */

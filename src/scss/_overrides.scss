@@ -1,0 +1,47 @@
+ul > .border-bottom,
+.dropdown-item {
+  border-bottom: 1px solid $secondary-color !important;
+}
+.navbar {
+  min-height: 150px;
+}
+
+.form-control {
+  background-color: $background-color;
+}
+
+.card {
+  background-color: $background-color;
+  border: 1px solid $decor-color;
+  box-shadow: $box-shaddow;
+}
+
+.item-card {
+  font-size: 12px;
+  h5 {
+    font-size: 14px;
+  }
+}
+
+.card-img-overlay {
+  left: auto;
+}
+
+.form-control {
+  border-color: $secondary-color;
+  box-shadow: $box-shaddow;
+}
+
+.footer {
+  background-color: $background-color;
+}
+
+.nav-link {
+  color: $test-color;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  border-color: $primary-color;
+  color: #fff;
+}

@@ -1,0 +1,48 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass src/scss:dist/css",
+    "format": "prettier --write **/*.js **/*.html",
+    "watch": "sass --watch src/scss:dist/css",
+    "dev": "npm run watch & live-server",
+    "start": "npm run live-server",
+    "prepare": "husky install",
+    "lint": "eslint src/**/*.js"
+  },
+  "keywords": [
+    "CSS",
+    "Frameworks",
+    "Bootstrap",
+    "SCSS",
+    "SASS"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "globals": "^15.1.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "sass": "^1.75.0"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "**/*.html": [
+      "prettier --write"
+    ],
+    "**/*.scss": [
+      "prettier --write"
+    ]
+  }
+}

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AuctionHouse - How to pay</title>
+
+    <link rel="stylesheet" href="../../dist/css/styles.css" />
+    <script src="https://kit.fontawesome.com/db895f6c4c.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid m-auto">
+          <div class="logo container-fluid col-8 text-center justify-content-center mt-2">
+            <a class="navbar-brand" href="../../">
+              <img src="../../images/auctionHouse_logo.png" alt="AuctionHouse Logo" class="img-fluid m-0 col-4" />
+            </a>
+            <div class="logo-text text-center m-0">
+              <h2>AuctionHouse</h2>
+              <p>-Bidding made easy-</p>
+            </div>
+          </div>
+
+          <button
+            class="navbar-toggler ms-auto"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse col-12" id="navbarNav">
+            <div class="col-12 ms-auto col-sm-3 col-lg-12">
+              <ul class="navbar-nav">
+                <li class="nav-item text-center d-none d-lg-block">
+                  <a class="nav-link m-auto" href="../../profile/">
+                    <i class="fas fa-user"></i>
+                    Profile
+                  </a>
+                </li>
+
+                <li class="nav-item text-center d-none d-lg-block">
+                  <a class="nav-link m-auto" href="../../">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                  </a>
+                </li>
+                <!-- Main Dropdown Menu -->
+                <li class="nav-item dropdown d-none d-lg-block">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Menu
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <!-- Nested Dropdown Submenu -->
+
+                    <a class="dropdown-item py-2" href="../../listings/createListing/"
+                      ><i class="fas fa-plus-circle"></i> Create Listing</a
+                    >
+                    <a class="dropdown-item py-2" href="../../listings/allListings/"
+                      ><i class="fas fa-list"></i> Browse Listings</a
+                    >
+
+                    <a class="dropdown-item py-2" href="../../listings/">
+                      <i class="fas fa-list-alt"></i> Browse by categories</a
+                    >
+
+                    <a
+                      class="dropdown-item dropdown-toggle py-2"
+                      href="#"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#submenu"
+                      aria-expanded="false"
+                      aria-controls="submenu"
+                      onclick="event.stopPropagation();"
+                    >
+                      <i class="fas fa-handshake"></i> Buy and Sell
+                    </a>
+                    <div class="collapse ms-5" id="submenu">
+                      <a class="dropdown-item py-2" href="../sell/">How to sell</a>
+                      <a class="dropdown-item py-2" href="../buy/">How to buy</a>
+                      <a class="dropdown-item py-2" href="../pay/">How to pay</a>
+                      <a class="dropdown-item py-2" href="../ship/">How to ship</a>
+                    </div>
+                    <a class="dropdown-item py-2" href="../"> <i class="fas fa-info-circle"></i>About</a>
+                    <a class="dropdown-item py-2" href="../../"
+                      ><i class="fa-solid fa-user-xmark text-start"></i> Logout</a
+                    >
+                  </div>
+                </li>
+                <!-- Items in navbar for smaller devices -->
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../profile/">
+                    <i class="fas fa-user"></i>
+                    Profile
+                  </a>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                  </a>
+                </li>
+
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../listings/createListing/"
+                    ><i class="fas fa-plus-circle"></i> Create Listing</a
+                  >
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../listings/allListings/"
+                    ><i class="fas fa-list"></i> Browse Listings</a
+                  >
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../listings/">
+                    <i class="fas fa-list-alt"></i> Browse by categories</a
+                  >
+                </li>
+                <li class="nav-item dropdown border-bottom py-2 d-lg-none">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-handshake"></i> Buy and Sell
+                  </a>
+                  <div class="dropdown-menu border-0 bg-light" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item py-2" href="../sell/">How to sell</a>
+                    <a class="dropdown-item py-2" href="../buy/">How to buy</a>
+                    <a class="dropdown-item py-2" href="../pay/">How to pay</a>
+                    <a class="dropdown-item py-2" href="../ship/">How to ship</a>
+                  </div>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../">
+                    <i class="fas fa-info-circle"></i>
+                    About
+                  </a>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../">
+                    <i class="fa-solid fa-user-xmark text-start"></i>
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="d-flex flex-column min-vh-100">
+      <div class="container mt-5 card col-10 col-lg-6 m-auto">
+        <div class="card-body col-11 m-auto">
+          <h1 class="mt-4 headline-text text-center">How to Pay</h1>
+          <p>
+            At AuctionHouse, payment for items is made using credits. Here's how you can pay for your purchases on our
+            platform:
+          </p>
+          <ol>
+            <li>
+              <strong>Available Credits:</strong> Before making a purchase, ensure that you have sufficient credits
+              available in your account.
+            </li>
+            <li>
+              <strong>Place Bid:</strong> When placing a bid on an item, the bid amount will be deducted from your
+              available credits.
+            </li>
+            <li>
+              <strong>Successful Bid:</strong> If your bid is the winning bid when the auction ends, the purchase amount
+              will be deducted from your credits, and you'll secure the item.
+            </li>
+            <li>
+              <strong>Insufficient Credits:</strong> If you do not have enough credits to place a bid, you may need to
+              earn more credits by selling items on AuctionHouse.
+            </li>
+          </ol>
+          <p>
+            By using credits as the primary form of payment, AuctionHouse ensures a seamless and convenient shopping
+            experience for all users. Start bidding and enjoy the thrill of acquiring unique items today!
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer border-top pt-3">
+      <div class="container">
+        <p>&copy; 2024 AuctionHouse. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

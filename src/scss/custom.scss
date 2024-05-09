@@ -1,0 +1,44 @@
+$primary-color: #8b4513; // Brown
+$decor-color: #ffd700; // Gold
+$background-color: #f8f9fa; // Beige
+$test-color: #372727;
+$secondary-color: #f2d7b6;
+$box-shaddow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+h2,
+h3,
+h4,
+h5,
+p,
+li {
+  font-family: "Open+Sans";
+}
+
+.logo {
+  margin-left: 50%;
+  translate: -50%;
+  width: min-content;
+}
+.logo-text {
+  font-family: "Cinzel";
+  color: $primary-color;
+  font-size: 15px;
+
+  h2 {
+    color: $test-color;
+    font-size: 25px;
+  }
+}
+
+.headline-text {
+  color: $primary-color;
+  font-family: "Cinzel";
+}
+
+.login-text {
+  color: $primary-color;
+}

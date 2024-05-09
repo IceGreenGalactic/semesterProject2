@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AuctionHouse - How to ship</title>
+
+    <link rel="stylesheet" href="../../dist/css/styles.css" />
+    <script src="https://kit.fontawesome.com/db895f6c4c.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid m-auto">
+          <div class="logo container-fluid col-8 text-center justify-content-center mt-2">
+            <a class="navbar-brand" href="../../">
+              <img src="../../images/auctionHouse_logo.png" alt="AuctionHouse Logo" class="img-fluid m-0 col-4" />
+            </a>
+            <div class="logo-text text-center m-0">
+              <h2>AuctionHouse</h2>
+              <p>-Bidding made easy-</p>
+            </div>
+          </div>
+
+          <button
+            class="navbar-toggler ms-auto"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse col-12" id="navbarNav">
+            <div class="col-12 ms-auto col-sm-3 col-lg-12">
+              <ul class="navbar-nav">
+                <li class="nav-item text-center d-none d-lg-block">
+                  <a class="nav-link m-auto" href="../../profile/">
+                    <i class="fas fa-user"></i>
+                    Profile
+                  </a>
+                </li>
+
+                <li class="nav-item text-center d-none d-lg-block">
+                  <a class="nav-link m-auto" href="../../">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                  </a>
+                </li>
+                <!-- Main Dropdown Menu -->
+                <li class="nav-item dropdown d-none d-lg-block">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Menu
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <!-- Nested Dropdown Submenu -->
+
+                    <a class="dropdown-item py-2" href="../../listings/createListing/"
+                      ><i class="fas fa-plus-circle"></i> Create Listing</a
+                    >
+                    <a class="dropdown-item py-2" href="../../listings/allListings/"
+                      ><i class="fas fa-list"></i> Browse Listings</a
+                    >
+
+                    <a class="dropdown-item py-2" href="../../listings/">
+                      <i class="fas fa-list-alt"></i> Browse by categories</a
+                    >
+
+                    <a
+                      class="dropdown-item dropdown-toggle py-2"
+                      href="#"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#submenu"
+                      aria-expanded="false"
+                      aria-controls="submenu"
+                      onclick="event.stopPropagation();"
+                    >
+                      <i class="fas fa-handshake"></i> Buy and Sell
+                    </a>
+                    <div class="collapse ms-5" id="submenu">
+                      <a class="dropdown-item py-2" href="../sell/">How to sell</a>
+                      <a class="dropdown-item py-2" href="../buy/">How to buy</a>
+                      <a class="dropdown-item py-2" href="../pay/">How to pay</a>
+                      <a class="dropdown-item py-2" href="../ship/">How to ship</a>
+                    </div>
+                    <a class="dropdown-item py-2" href="../"> <i class="fas fa-info-circle"></i>About</a>
+                    <a class="dropdown-item py-2" href="../../"
+                      ><i class="fa-solid fa-user-xmark text-start"></i> Logout</a
+                    >
+                  </div>
+                </li>
+                <!-- Items in navbar for smaller devices -->
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../profile/">
+                    <i class="fas fa-user"></i>
+                    Profile
+                  </a>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                  </a>
+                </li>
+
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../listings/createListing/"
+                    ><i class="fas fa-plus-circle"></i> Create Listing</a
+                  >
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../listings/allListings/"
+                    ><i class="fas fa-list"></i> Browse Listings</a
+                  >
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../listings/">
+                    <i class="fas fa-list-alt"></i> Browse by categories</a
+                  >
+                </li>
+                <li class="nav-item dropdown border-bottom py-2 d-lg-none">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-handshake"></i> Buy and Sell
+                  </a>
+                  <div class="dropdown-menu border-0 bg-light" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item py-2" href="../sell/">How to sell</a>
+                    <a class="dropdown-item py-2" href="../buy/">How to buy</a>
+                    <a class="dropdown-item py-2" href="../pay/">How to pay</a>
+                    <a class="dropdown-item py-2" href="../ship/">How to ship</a>
+                  </div>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../">
+                    <i class="fas fa-info-circle"></i>
+                    About
+                  </a>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../">
+                    <i class="fa-solid fa-user-xmark text-start"></i>
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="d-flex flex-column min-vh-100">
+      <div class="container mt-5 card col-10 col-lg-6 m-auto">
+        <div class="card-body col-11 m-auto">
+          <h1 class="mt-4 headline-text text-center">How to Ship</h1>
+
+          <h2 class="mt-4 headline-text">For Buyers</h2>
+          <p>Congratulations on winning the auction! Here's what you need to know about shipping:</p>
+          <ol>
+            <li>
+              <strong>Shipping Included:</strong> Shipping costs are always included in the item's price, so there's no
+              need to worry about additional fees.
+            </li>
+            <li>
+              <strong>Contact Seller:</strong> Reach out to the seller to confirm shipping details and provide any
+              special instructions.
+            </li>
+            <li>
+              <strong>Tracking Information:</strong> Once the item is shipped, the seller will provide tracking
+              information so you can monitor its progress.
+            </li>
+            <li>
+              <strong>Receive Item:</strong> Upon delivery, inspect the item to ensure it matches the description and
+              meets your expectations.
+            </li>
+          </ol>
+
+          <h2 class="mt-4 headline-text">For Sellers</h2>
+          <p>Here's what sellers need to know about shipping items to buyers:</p>
+          <ol>
+            <li>
+              <strong>Shipping Details:</strong> Ensure that you have accurate shipping information for the buyer,
+              including their address and any specific instructions they may have provided.
+            </li>
+            <li>
+              <strong>Packaging:</strong> Pack the item securely to prevent damage during transit. Use appropriate
+              packaging materials and consider adding extra padding for fragile items.
+            </li>
+            <li>
+              <strong>Shipping Process:</strong> Choose a reliable shipping method and provide the buyer with tracking
+              information once the item is dispatched.
+            </li>
+          </ol>
+
+          <p>
+            By following these steps, both buyers and sellers can ensure a smooth and successful shipping experience. If
+            you have any questions or concerns, don't hesitate to reach out to AuctionHouse support.
+          </p>
+        </div>
+      </div>
+    </main>
+    <footer class="footer border-top pt-3">
+      <div class="container">
+        <p>&copy; 2024 AuctionHouse. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

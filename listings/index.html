@@ -66,9 +66,16 @@
                   </a>
                   <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <!-- Nested Dropdown Submenu -->
-                    <a class="dropdown-item" href="../../info/"> <i class="fas fa-info-circle"></i>About</a>
+
+                    <a class="dropdown-item py-2" href="./createListing/"
+                      ><i class="fas fa-plus-circle"></i> Create Listing</a
+                    >
+                    <a class="dropdown-item py-2" href="./allListings/"><i class="fas fa-list"></i> Browse Listings</a>
+
+                    <a class="dropdown-item py-2" href="./"> <i class="fas fa-list-alt"></i> Browse by categories</a>
+
                     <a
-                      class="dropdown-item dropdown-toggle"
+                      class="dropdown-item dropdown-toggle py-2"
                       href="#"
                       data-bs-toggle="collapse"
                       data-bs-target="#submenu"
@@ -79,13 +86,15 @@
                       <i class="fas fa-handshake"></i> Buy and Sell
                     </a>
                     <div class="collapse ms-5" id="submenu">
-                      <a class="dropdown-item" href="../../info/sell/">How to sell</a>
-                      <a class="dropdown-item" href="../../info/buy/">How to buy</a>
-                      <a class="dropdown-item" href="../../info/pay/">How to pay</a>
-                      <a class="dropdown-item" href="../../info/ship/">How to ship</a>
+                      <a class="dropdown-item py-2" href="../../info/sell/">How to sell</a>
+                      <a class="dropdown-item py-2" href="../../info/buy/">How to buy</a>
+                      <a class="dropdown-item py-2" href="../../info/pay/">How to pay</a>
+                      <a class="dropdown-item py-2" href="../../info/ship/">How to ship</a>
                     </div>
-                    <a class="dropdown-item" href="#"><i class="fa-solid fa-gears"></i> Settings</a>
-                    <a class="dropdown-item" href="../../"><i class="fa-solid fa-user-xmark text-start"></i> Logout</a>
+                    <a class="dropdown-item py-2" href="../../info/"> <i class="fas fa-info-circle"></i>About</a>
+                    <a class="dropdown-item py-2" href="../../"
+                      ><i class="fa-solid fa-user-xmark text-start"></i> Logout</a
+                    >
                   </div>
                 </li>
                 <!-- Items in navbar for smaller devices -->
@@ -101,11 +110,17 @@
                     Home
                   </a>
                 </li>
+
                 <li class="nav-item text-start border-bottom d-lg-none py-2">
-                  <a class="nav-link m-auto" href="../../info/">
-                    <i class="fas fa-info-circle"></i>
-                    About
-                  </a>
+                  <a class="nav-link m-auto" href="./createListing/"
+                    ><i class="fas fa-plus-circle"></i> Create Listing</a
+                  >
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="./allListings/"><i class="fas fa-list"></i> Browse Listings</a>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="./"> <i class="fas fa-list-alt"></i> Browse by categories</a>
                 </li>
                 <li class="nav-item dropdown border-bottom py-2 d-lg-none">
                   <a
@@ -126,9 +141,9 @@
                   </div>
                 </li>
                 <li class="nav-item text-start border-bottom d-lg-none py-2">
-                  <a class="nav-link m-auto" href="#">
-                    <i class="fa-solid fa-gears"></i>
-                    Settings
+                  <a class="nav-link m-auto" href="../../info/">
+                    <i class="fas fa-info-circle"></i>
+                    About
                   </a>
                 </li>
                 <li class="nav-item text-start border-bottom d-lg-none py-2">

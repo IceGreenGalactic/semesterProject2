@@ -199,7 +199,8 @@
                 The perfect place to buy and sell auction items. Find unique treasures or list your own items for
                 auction.
               </p>
-              <p class="lead">Join our community today!</p>
+              <p class="lead mb-5">Join our community today!</p>
+              <a href="../profile/register/" class="btn btn-primary mb-4 mb-lg-2">Register Now</a>
             </div>
             <div class="col-lg-6 m-auto">
               <img src="./images/banner.JPG" class="banner-image img-fluid" alt="Item Image" />
@@ -208,51 +209,10 @@
         </div>
       </section>
 
-      <!-- Featured Listings Section -->
-      <section class="bg-light py-5">
-        <div class="container">
-          <h2 class="text-center mb-4">Featured Listings</h2>
-          <div class="row">
-            <div class="col-md-4 mb-4">
-              <div class="card h-100">
-                <img src="./images/forSale.jpg" class="card-img-top w-50 m-auto" alt="Featured Listing" />
-                <div class="card-body">
-                  <h5 class="card-title">Featured Item 1</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  <a href="#" class="btn btn-primary">View Listing</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="card h-100">
-                <img src="./images/forSale.jpg" class="card-img-top w-50 m-auto" alt="Featured Listing" />
-                <div class="card-body">
-                  <h5 class="card-title">Featured Item 2</h5>
-                  <p class="card-text">Nullam tincidunt lacinia augue nec tempus.</p>
-                  <a href="#" class="btn btn-primary">View Listing</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="card h-100">
-                <img src="./images/forSale.jpg" class="card-img-top w-50 m-auto" alt="Featured Listing" />
-                <div class="card-body">
-                  <h5 class="card-title">Featured Item 3</h5>
-                  <p class="card-text">
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                  </p>
-                  <a href="#" class="btn btn-primary">View Listing</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- Testimonial Section -->
       <section class="bg-light py-5">
         <div class="container">
-          <h2 class="text-center mb-4">What Our Users Say</h2>
+          <h2 class="text-center mb-4 headline-text">What Our Users Say</h2>
           <div class="row">
             <div class="col-md-4 mb-4">
               <div class="card border-0">
@@ -296,15 +256,16 @@
       <!-- Upcoming Auctions Section -->
       <section class="bg-light py-5">
         <div class="container">
-          <h2 class="text-center mb-4">Upcoming Auctions</h2>
+          <h2 class="text-center mb-4 headline-text">Upcoming Auctions</h2>
           <div class="row">
             <div class="col-md-4 mb-4">
+              <div id="upcomingAuctions"></div>
               <div class="card h-100">
                 <img src="./images/watch4sale.jpg" class="card-img-top w-50 m-auto" alt="Upcoming Auction" />
                 <div class="card-body">
                   <h5 class="card-title">Auction Item 1</h5>
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  <a href="#" class="btn btn-primary">Learn More</a>
+                  <a href="#" class="btn btn-primary">View item</a>
                 </div>
               </div>
             </div>
@@ -314,7 +275,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Auction Item 2</h5>
                   <p class="card-text">Nullam tincidunt lacinia augue nec tempus.</p>
-                  <a href="#" class="btn btn-primary">Learn More</a>
+                  <a href="#" class="btn btn-primary">View item</a>
                 </div>
               </div>
             </div>
@@ -326,9 +287,12 @@
                   <p class="card-text">
                     Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
                   </p>
-                  <a href="#" class="btn btn-primary">Learn More</a>
+                  <a href="#" class="btn btn-primary">View item</a>
                 </div>
               </div>
+            </div>
+            <div class="text-center">
+              <a href="./listings/allListings/" class="btn btn-primary">See all listings</a>
             </div>
           </div>
         </div>

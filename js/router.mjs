@@ -11,6 +11,10 @@ export function router(){
             case "/profile/register":
                 listners.setRegisterFormListener();
                 return;
+
+                case "/listings/allListings/":
+                    listners.displayAllListings();
+                    return;
                 
     }
 

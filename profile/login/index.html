@@ -7,9 +7,7 @@
 
     <link rel="stylesheet" href="../../dist/css/styles.css" />
     <script src="https://kit.fontawesome.com/db895f6c4c.js" crossorigin="anonymous"></script>
-    <style>
-      /* Custom CSS styles can be added here */
-    </style>
+    <script src="../../js/index.mjs" defer type="module"></script>
   </head>
 
   <body class="d-flex flex-column min-vh-100">
@@ -177,14 +175,20 @@
         </h1>
         <div class="row justify-content-center">
           <div class="col-12 col-md-10">
-            <form>
+            <form id="loginForm">
               <div class="mb-3">
-                <label for="username" class="login-text form-label">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Enter your username" />
+                <label for="email" class="login-text form-label">email</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
               </div>
               <div class="mb-3">
                 <label for="password" class="login-text form-label">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Enter your password" />
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password"
+                />
               </div>
               <div class="col-12">
                 <div class="d-flex gap-2 justify-content-between">
@@ -199,7 +203,7 @@
               </div>
               <div class="col-12">
                 <div class="d-grid my-3 justify-content-center">
-                  <button class="btn btn-primary btn-md" type="submit">Log in</button>
+                  <button type="submit" class="btn btn-primary btn-md">Log in</button>
                 </div>
               </div>
               <div class="col-12">

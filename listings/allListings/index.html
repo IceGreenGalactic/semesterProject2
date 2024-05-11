@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../dist/css/styles.css" />
     <script src="https://kit.fontawesome.com/db895f6c4c.js" crossorigin="anonymous"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/index.mjs" defer type="module"></script>
   </head>
 
   <body class="d-flex flex-column min-vh-100">
@@ -166,11 +167,12 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
+
       <!-- List of Auction Items Section -->
       <div class="container my-4">
         <div class="row item-card">
           <div class="row m-auto align-items-bottom">
-            <div id="profileListings" class="item-card"></div>
+            <div id="allListing" class="item-card"></div>
 
             <!-- Auction Items (Fetched from API) -->
 

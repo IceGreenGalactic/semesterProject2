@@ -9,7 +9,10 @@ export function router() {
       return;
 
     case "/profile/register/":
-     
+      return;
+
+    case "/listings/allListings/":
+      listners.displayAllListings();
       return;
   }
 }

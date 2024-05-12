@@ -20,3 +20,8 @@ export function setRegisterFormListener() {
   });
 }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Call the function to set up the listener
+  setRegisterFormListener();
+});

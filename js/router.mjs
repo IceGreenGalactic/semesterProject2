@@ -1,17 +1,15 @@
-import * as listners from "./handlers/index.mjs"
+import * as listners from "./handlers/index.mjs";
 
-export function router(){
-    const path = location.pathname;
+export function router() {
+  const path = location.pathname;
 
-    switch (path) {
-        case "/profile/login/":
-            listners.setLoginFormListener();
-            return;
+  switch (path) {
+    case "/profile/login/":
+      listners.setLoginFormListener();
+      return;
 
-            case "/profile/register":
-                listners.setRegisterFormListener();
-                return;
-                
-    }
-
+    case "/profile/register/":
+     
+      return;
+  }
 }

@@ -11883,6 +11883,11 @@ li {
   color: #8b4513;
 }
 
+.listing-img {
+  max-height: 200px;
+  object-fit: cover;
+}
+
 ul > .border-bottom,
 .dropdown-item {
   border-bottom: 1px solid #f2d7b6 !important;

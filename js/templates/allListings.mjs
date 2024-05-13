@@ -1,10 +1,11 @@
-import { getHighestBid } from "../utils/highestBid.mjs";
 
 import { countdownTimer } from "../utils/countdown.mjs";
 
 
 
 export function createListingElement(item) {
+
+
   const listingWrapper = document.createElement("div");
   listingWrapper.classList.add("col-10", "col-md-6", "col-lg-4", "m-auto", "mb-3");
 
@@ -24,30 +25,34 @@ export function createListingElement(item) {
   timerTitle.classList.add("headline-text", "mb-0");
   timerTitle.textContent = "Time Left";
   const timerSpan = document.createElement("span");
-  timerSpan.classList.add("headline-text");
+  timerSpan.classList.add("primary-color-text");
   timerSpan.setAttribute("id", "timer");
   timerSpan.textContent = countdownTimer(item);
 
   const cardBody = document.createElement("div");
   cardBody.classList.add("card-body", "m-auto");
   const title = document.createElement("h3");
-  title.classList.add("card-title", "text-center");
+  title.classList.add("card-title", "headline-text", "text-center");
   title.textContent = item.title;
 
   const infoContainer = document.createElement("p");
   infoContainer.classList.add("div");
+const created = document.createElement("p");
+created.textContent = `Created: ${new Date(item.created).toDateString()}`;
   const bids = document.createElement("p");
   bids.textContent = `Bids: ${item._count.bids}`;
-  const highestBid = document.createElement("p");
-  highestBid.textContent = `Highest Bid: ${getHighestBid(item.bids)}`;
+
 
   const buttonDiv = document.createElement("div");
   buttonDiv.classList.add("text-center", "mt-2");
   const viewButton = document.createElement("button");
   viewButton.classList.add("btn", "btn-primary", "btn-sm", "py-0", "my-2");
-  
-  viewButton.textContent = "View Listing";
 
+  viewButton.textContent = "View Listing";
+  viewButton.addEventListener("click", () => {
+    // Redirect to singleListing.html with the listing ID as a URL parameter
+    window.location.href = `../../listings/singleListing/?id=${item.id}`;
+  });
  
   cardOverlay.appendChild(overlayInner);
   overlayInner.appendChild(timerTitle);
@@ -58,7 +63,7 @@ export function createListingElement(item) {
   cardBody.appendChild(title);
   cardBody.appendChild(infoContainer);
   infoContainer.appendChild(bids);
-  infoContainer.appendChild(highestBid);
+  infoContainer.appendChild(created);
   cardBody.appendChild(buttonDiv);
   buttonDiv.appendChild(viewButton);
   listingWrapper.appendChild(card);
@@ -73,20 +78,3 @@ export function renderAllListingTemplates(listingDataList, parent) {
   });
 }
 
-export async function renderSingleListingTemplate(listingData, parent) {
-  try {
-    const listingElement = createListingElement(listingData);
-    if (listingElement) {
-      const existingListingElement = parent.querySelector(`[data-listing-id="${listingData.id}"]`);
-      if (existingListingElement) {
-       
-        existingListingElement.replaceWith(listingElement);
-      } else {
-        // Otherwise, append the new listing element
-        parent.appendChild(listingElement);
-      }
-    }
-  } catch (error) {
-    console.error("Error rendering listing template:", error);
-  }
-}

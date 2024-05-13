@@ -15,7 +15,7 @@ export function setRegisterFormListener() {
       .then(() => {})
       .catch((error) => {
         console.error("Error registering:", error);
-        showMessage("Error registering:" + error.message, "error");
+      
       });
   });
 }

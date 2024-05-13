@@ -29,10 +29,10 @@ export function createSingleListingElement(item) {
   timerSpan.textContent = countdownTimer(item.data);
 
   const contentContainer = document.createElement("div");
-  contentContainer.classList.add("col-lg-5", "m-auto");
+  contentContainer.classList.add("col-lg-8", "m-auto");
 
   const cardBody = document.createElement("div");
-  cardBody.classList.add("card-body", "text-center", "text-lg-start");
+  cardBody.classList.add("card-body", "text-center", "m-auto");
 
   const title = document.createElement("h2");
   title.classList.add("card-title", "text-center", "headline-text", "my-3");
@@ -65,10 +65,10 @@ export function createSingleListingElement(item) {
     bidsContainer.appendChild(bidElement);
   });
 
-  const highestBid = document.createElement("p");
+  const highestBid = document.createElement("h4");
   const lastBid = item.data.bids[item.data.bids.length - 1];
   const highestBidAmount = lastBid ? lastBid.amount : 0;
-  highestBid.classList.add("card-text", "primary-color-text", "text-left", "border-bottom");
+  highestBid.classList.add("card-text", "primary-color-text");
   highestBid.textContent = `Highest Bid: ${highestBidAmount} credits`;
 
   const placeBidBtn = document.createElement("button");
@@ -98,7 +98,7 @@ export function createSingleListingElement(item) {
   cardBody.appendChild(showMoreBtn);
   cardBody.appendChild(bidsContainer);
   cardBody.appendChild(highestBid);
-  card.appendChild(placeBidBtn);
+  cardBody.appendChild(placeBidBtn);
 
   listingWrapper.appendChild(card);
 

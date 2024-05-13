@@ -5,7 +5,7 @@ h3,
 h4,
 h5,
 p,
-li {
+li, span {
   font-family: "Open+Sans";
 }
 
@@ -30,8 +30,13 @@ li {
   font-family: "Cinzel";
 }
 
-.login-text {
+.login-text, .primary-color-text {
   color: #8b4513;
+}
+
+.listing-img {
+  max-height: 200px;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=custom.css.map */

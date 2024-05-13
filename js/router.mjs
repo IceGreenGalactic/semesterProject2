@@ -7,18 +7,20 @@ export function router() {
   const path = location.pathname;
 
   switch (path) {
-    case "/profile/login/":
-      listeners.setLoginFormListener();
-      return;
 
-    case "/profile/register/":
-      return;
 
-    default:
+    case "/listings/allListings/":
+      listners.displayAllListings();
+      return;
+    case "/listings/singleListing/":
+      listners.displaySingleListing();
+
+      return;
+      
+         default:
       utils.updateProfileNav();
 
       listeners.setLoginFormListener();
       auth.handleLogout();
-      return;
   }
 }

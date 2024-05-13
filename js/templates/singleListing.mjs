@@ -1,6 +1,8 @@
 import { isLoggedIn } from "../utils/index.mjs";
 import { openLoginModal, openBidModal } from "../handlers/index.mjs";
 import { countdownTimer } from "../utils/countdown.mjs";
+import { createCarouselElement } from "./carousel.mjs";
+
 export function createSingleListingElement(item) {
   const listingWrapper = document.createElement("div");
   listingWrapper.classList.add("card", "col-10", "m-auto", "mb-3");
@@ -10,12 +12,8 @@ export function createSingleListingElement(item) {
 
   // Image container column
   const imgContainer = document.createElement("div");
-  imgContainer.classList.add("col-lg-7", "my-auto", "position-relative");
-  const img = document.createElement("img");
-  img.classList.add("card-img-top", "h-auto", "m-auto", "img-fluid");
-  img.src = item.data.media && item.data.media.length > 0 ? item.data.media[0].url : "../../images/noImage.jpg";
-  img.alt = "listing image";
-
+  imgContainer.classList.add("col-lg-10", "m-auto", "position-relative");
+  const imgCarousel = createCarouselElement(item.data.media);
   // Countdown timer overlay
   const cardOverlay = document.createElement("div");
   cardOverlay.classList.add("card-img-overlay", "d-flex", "flex-column", "text-center", "align-items-center");
@@ -86,8 +84,8 @@ export function createSingleListingElement(item) {
   cardOverlay.appendChild(overlayInner);
   overlayInner.appendChild(timerTitle);
   overlayInner.appendChild(timerSpan);
-  imgContainer.appendChild(img);
-  imgContainer.appendChild(cardOverlay);
+  imgContainer.appendChild(imgCarousel);
+  imgCarousel.appendChild(cardOverlay);
   card.appendChild(imgContainer);
   card.appendChild(contentContainer);
   contentContainer.appendChild(cardBody);

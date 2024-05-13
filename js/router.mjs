@@ -18,6 +18,7 @@ export function router() {
       utils.updateProfileNav();
 
       listeners.setLoginFormListener();
+      auth.handleLogout();
       return;
   }
 }

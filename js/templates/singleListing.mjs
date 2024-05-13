@@ -1,3 +1,5 @@
+import { isLoggedIn } from "../utils/index.mjs";
+import { openLoginModal, openBidModal } from "../handlers/index.mjs";
 import { countdownTimer } from "../utils/countdown.mjs";
 export function createSingleListingElement(item) {
   const listingWrapper = document.createElement("div");
@@ -73,7 +75,11 @@ export function createSingleListingElement(item) {
   placeBidBtn.classList.add("btn", "btn-primary", "btn-sm", "col-4", "my-4", "m-auto");
   placeBidBtn.textContent = "place a bid";
   placeBidBtn.addEventListener("click", () => {
-    window.location.href = `../../listings/singleListing/?id=${item.data.id}`;
+    if (isLoggedIn()) {
+      openBidModal();
+    } else {
+      openLoginModal();
+    }
   });
 
   card.appendChild(title);

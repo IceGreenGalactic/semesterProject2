@@ -1,6 +1,7 @@
 import { save } from "../../storage/token.mjs";
 import { loginUserEndpoint } from "../api_constants.mjs";
-import { authFetch, apiKey } from "../authFetch.mjs";
+import { apiKey } from "../authFetch.mjs";
+import { closeLoginModal } from "../../handlers/index.mjs";
 
 export async function loginUser(email, password) {
   try {
@@ -30,7 +31,7 @@ export async function loginUser(email, password) {
 
     if (accessToken) {
       setTimeout(() => {
-        window.location.href = "../../../profile";
+        closeLoginModal();
       }, 2000);
     } else {
       throw new Error("No access token provided, please register");

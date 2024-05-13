@@ -14,5 +14,8 @@ export function router() {
     case "/listings/allListings/":
       listners.displayAllListings();
       return;
+    case "/listings/singleListing/":
+      listners.displaySingleListing();
+      return;
   }
 }

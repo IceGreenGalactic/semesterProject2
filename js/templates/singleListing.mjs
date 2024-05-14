@@ -10,10 +10,10 @@ export function createSingleListingElement(item) {
   const card = document.createElement("div");
   card.classList.add("h-100", "m-auto", "pb-2", "row", "p-5", "align-items-center");
 
-  // Image container column
   const imgContainer = document.createElement("div");
   imgContainer.classList.add("col-lg-10", "m-auto", "position-relative");
   const imgCarousel = createCarouselElement(item.data.media);
+  imgCarousel.classList.add("col-10", "m-auto");
   // Countdown timer overlay
   const cardOverlay = document.createElement("div");
   cardOverlay.classList.add("card-img-overlay", "d-flex", "flex-column", "text-center", "align-items-center");
@@ -36,15 +36,15 @@ export function createSingleListingElement(item) {
   cardBody.classList.add("card-body", "text-center", "m-auto");
 
   const title = document.createElement("h2");
-  title.classList.add("card-title", "text-center", "headline-text", "my-3", "text-center"); // Center the heading
+  title.classList.add("card-title", "text-center", "headline-text", "my-3", "text-center");
   title.textContent = item.data.title;
   const seller = document.createElement("h4");
-  seller.classList.add("text-center"); // Center the heading
+  seller.classList.add("text-center");
   seller.textContent = `Seller: ${item.data.seller.name}`;
   title.appendChild(seller);
 
   const descriptionHeadline = document.createElement("h5");
-  descriptionHeadline.classList.add("text-center"); // Center the heading
+  descriptionHeadline.classList.add("text-center");
   descriptionHeadline.textContent = "Description:";
   const description = document.createElement("p");
   description.classList.add("mb-3", "text-start");
@@ -84,7 +84,7 @@ export function createSingleListingElement(item) {
   });
 
   const highestBid = document.createElement("h4");
-  highestBid.classList.add("card-text", "primary-color-text", "mt-4", "text-start"); // Center the heading
+  highestBid.classList.add("card-text", "primary-color-text", "mt-4", "text-start");
   const lastBid = item.data.bids[item.data.bids.length - 1];
   const highestBidAmount = lastBid ? lastBid.amount : 0;
   highestBid.textContent = `Highest Bid: ${highestBidAmount} credits`;

@@ -6,22 +6,33 @@ export function createCarouselElement(media) {
   const imgCarouselInner = document.createElement("div");
   imgCarouselInner.classList.add("carousel-inner");
 
-  // Loops through each image and creates carousel items
-  media.forEach((mediaItem, index) => {
+  if (media.length === 0) {
     const imgCarouselItem = document.createElement("div");
-    imgCarouselItem.classList.add("carousel-item");
-    if (index === 0) {
-      imgCarouselItem.classList.add("active");
-    }
+    imgCarouselItem.classList.add("carousel-item", "active");
 
     const img = document.createElement("img");
     img.classList.add("d-block", "w-100");
-    img.src = mediaItem.url;
-    img.alt = mediaItem.alt || "";
-
+    img.src = "../../images/noImage.jpg";
+    img.alt = "No Image";
     imgCarouselItem.appendChild(img);
     imgCarouselInner.appendChild(imgCarouselItem);
-  });
+  } else {
+    // Loops through each image and creates carousel items
+    media.forEach((mediaItem, index) => {
+      const imgCarouselItem = document.createElement("div");
+      imgCarouselItem.classList.add("carousel-item");
+      if (index === 0) {
+        imgCarouselItem.classList.add("active");
+      }
+
+      const img = document.createElement("img");
+      img.classList.add("d-block", "w-100");
+      img.src = mediaItem.url;
+      img.alt = mediaItem.alt || "";
+      imgCarouselItem.appendChild(img);
+      imgCarouselInner.appendChild(imgCarouselItem);
+    });
+  }
 
   imgCarousel.appendChild(imgCarouselInner);
 

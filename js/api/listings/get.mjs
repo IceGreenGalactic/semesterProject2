@@ -1,8 +1,12 @@
 import { listingsEndpoint } from "../api_constants.mjs";
 
+const QUERY_PARAMS = "_seller=true&_bids=true";
+
+const getAllUrl = `${listingsEndpoint}?${QUERY_PARAMS}`;
+
 export async function getAllListings() {
   try {
-    const response = await fetch(listingsEndpoint);
+    const response = await fetch(`${getAllUrl}`);
     if (!response.ok) {
       throw new Error(`Failed to fetch listings: ${response.status}`);
     }
@@ -12,8 +16,6 @@ export async function getAllListings() {
     throw error;
   }
 }
-
-const QUERY_PARAMS = "_seller=true&_bids=true";
 
 export async function getListingById(id) {
   if (!id) {

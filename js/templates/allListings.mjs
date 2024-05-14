@@ -73,3 +73,13 @@ export function renderAllListingTemplates(listingDataList, parent) {
     parent.appendChild(listingElement);
   });
 }
+
+export function renderSomeListings(listingDataList, parent) {
+  parent.innerHTML = "";
+  const sortedListings = listingDataList.sort((a, b) => new Date(b.created) - new Date(a.created));
+  const firstThreeListings = sortedListings.slice(0, 3);
+  firstThreeListings.forEach((listingData) => {
+    const listingElement = createListingElement(listingData);
+    parent.appendChild(listingElement);
+  });
+}

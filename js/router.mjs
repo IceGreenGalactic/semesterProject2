@@ -5,6 +5,11 @@ export function router() {
   const path = location.pathname;
 
   switch (path) {
+    case "/":
+      listeners.displaySomeListings();
+
+      return;
+
     case "/listings/allListings/":
       listeners.displayAllListings();
       return;

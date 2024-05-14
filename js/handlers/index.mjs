@@ -7,3 +7,4 @@ export * from "./modals/registrationModal.mjs";
 
 export * from "./listings/displayAllListings.mjs";
 export * from "./listings/displaySingleListing.mjs";
+export * from "./listings/displaySomeListings.mjs";

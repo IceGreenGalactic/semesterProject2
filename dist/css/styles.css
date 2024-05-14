@@ -11890,6 +11890,10 @@ span {
   object-fit: cover;
 }
 
+#sortOptions {
+  max-width: 150px;
+}
+
 .scroll-to-top-button {
   position: fixed;
   bottom: 50px;
@@ -11928,7 +11932,7 @@ ul > .border-bottom,
   left: auto;
 }
 
-.form-control {
+.form-control, .input-group-text {
   border-color: #f2d7b6;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }

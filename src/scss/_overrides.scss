@@ -27,7 +27,8 @@ ul > .border-bottom,
   left: auto;
 }
 
-.form-control {
+.form-control,
+.input-group-text {
   border-color: $secondary-color;
   box-shadow: $box-shaddow;
 }

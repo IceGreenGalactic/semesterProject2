@@ -25,6 +25,9 @@ export function createSingleListingElement(item) {
   const timerSpan = document.createElement("span");
   timerSpan.classList.add("headline-text");
   timerSpan.textContent = countdownTimer(item.data);
+  setInterval(() => {
+    timerSpan.textContent = countdownTimer(item.data);
+  }, 1000);
 
   const contentContainer = document.createElement("div");
   contentContainer.classList.add("col-lg-8", "m-auto");
@@ -33,20 +36,38 @@ export function createSingleListingElement(item) {
   cardBody.classList.add("card-body", "text-center", "m-auto");
 
   const title = document.createElement("h2");
-  title.classList.add("card-title", "text-center", "headline-text", "my-3");
+  title.classList.add("card-title", "text-center", "headline-text", "my-3", "text-center"); // Center the heading
   title.textContent = item.data.title;
+  const seller = document.createElement("h4");
+  seller.classList.add("text-center"); // Center the heading
+  seller.textContent = `Seller: ${item.data.seller.name}`;
+  title.appendChild(seller);
 
   const descriptionHeadline = document.createElement("h5");
+  descriptionHeadline.classList.add("text-center"); // Center the heading
   descriptionHeadline.textContent = "Description:";
   const description = document.createElement("p");
-  description.classList.add("mb-3");
+  description.classList.add("mb-3", "text-start");
   description.textContent = `${item.data.description}`;
 
-  const bidsTitle = document.createElement("h5");
-  bidsTitle.textContent = `Current bids: ${item.data._count.bids} `;
+  const infoHeadline = document.createElement("h5");
+  infoHeadline.textContent = "Info:";
+
+  const created = document.createElement("p");
+  created.classList.add("text-start");
+  created.textContent = `Created:   ${new Date(item.data.created).toDateString()}`;
+  const ending = document.createElement("p");
+  ending.classList.add("text-start");
+  setInterval(() => {
+    ending.textContent = `Ends at: ${new Date(item.data.endsAt).toDateString()} (${countdownTimer(item.data)})`;
+  }, 1000);
+
+  const currentBids = document.createElement("p");
+  currentBids.classList.add("text-start");
+  currentBids.textContent = `Current bids: ${item.data._count.bids} `;
 
   const showMoreBtn = document.createElement("button");
-  showMoreBtn.classList.add("btn", "btn-link", "primary-color-text", "m-auto", "mb-2");
+  showMoreBtn.classList.add("btn", "btn-link", "primary-color-text", "mb-2", "me-auto");
   showMoreBtn.textContent = "show all bids  (↓)";
   showMoreBtn.addEventListener("click", () => {
     bidsContainer.classList.toggle("d-none");
@@ -54,8 +75,7 @@ export function createSingleListingElement(item) {
   });
 
   const bidsContainer = document.createElement("div");
-  bidsContainer.classList.add("card-text", "text-center", "m-auto", "mb-2", "bid-container", "d-none");
-
+  bidsContainer.classList.add("card-text", "text-start", "mb-2", "bid-container", "d-none");
   item.data.bids.forEach((bid) => {
     const bidElement = document.createElement("p");
     bidElement.textContent = `${bid.bidder.name}: Amount: ${bid.amount}`;
@@ -64,10 +84,21 @@ export function createSingleListingElement(item) {
   });
 
   const highestBid = document.createElement("h4");
+  highestBid.classList.add("card-text", "primary-color-text", "mt-4", "text-start"); // Center the heading
   const lastBid = item.data.bids[item.data.bids.length - 1];
   const highestBidAmount = lastBid ? lastBid.amount : 0;
-  highestBid.classList.add("card-text", "primary-color-text");
   highestBid.textContent = `Highest Bid: ${highestBidAmount} credits`;
+
+  const defaultBidAmount = lastBid ? lastBid.amount + 1 : 1;
+
+  const bidForm = document.createElement("form");
+  bidForm.classList.add("bid-form");
+
+  const bidInput = document.createElement("input");
+  bidInput.setAttribute("type", "number");
+  bidInput.setAttribute("min", defaultBidAmount);
+  bidInput.setAttribute("placeholder", "Enter your bid amount");
+  bidInput.classList.add("form-control", "mb-2");
 
   const placeBidBtn = document.createElement("button");
   placeBidBtn.classList.add("btn", "btn-primary", "btn-sm", "col-4", "my-4", "m-auto");
@@ -87,16 +118,21 @@ export function createSingleListingElement(item) {
   imgContainer.appendChild(imgCarousel);
   imgCarousel.appendChild(cardOverlay);
   card.appendChild(imgContainer);
+  card.appendChild(title);
   card.appendChild(contentContainer);
   contentContainer.appendChild(cardBody);
-
   cardBody.appendChild(descriptionHeadline);
   cardBody.appendChild(description);
-  cardBody.appendChild(bidsTitle);
+  cardBody.appendChild(infoHeadline);
+  cardBody.appendChild(created);
+  cardBody.appendChild(ending);
+  cardBody.appendChild(currentBids);
   cardBody.appendChild(showMoreBtn);
   cardBody.appendChild(bidsContainer);
   cardBody.appendChild(highestBid);
-  cardBody.appendChild(placeBidBtn);
+  cardBody.appendChild(bidForm);
+  bidForm.appendChild(bidInput);
+  bidForm.appendChild(placeBidBtn);
 
   listingWrapper.appendChild(card);
 

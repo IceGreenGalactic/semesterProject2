@@ -41,6 +41,10 @@ span {
   object-fit: cover;
 }
 
+#sortOptions {
+  max-width: 150px;
+}
+
 .scroll-to-top-button {
   position: fixed;
   bottom: 50px;

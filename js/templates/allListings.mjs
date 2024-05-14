@@ -4,7 +4,6 @@ import { storeScrollPosition } from "../utils/scroll/scrollPosition.mjs";
 export function createListingElement(item) {
   const listingWrapper = document.createElement("div");
   listingWrapper.classList.add("col-10", "col-md-6", "col-lg-4", "m-auto", "mb-3");
-
   const card = document.createElement("div");
   card.classList.add("card", "h-100", "m-auto", "pb-2");
 
@@ -34,12 +33,20 @@ export function createListingElement(item) {
   title.classList.add("card-title", "headline-text", "text-center");
   title.textContent = item.title;
 
-  const infoContainer = document.createElement("p");
-  infoContainer.classList.add("div");
+  const infoContainer = document.createElement("div");
+  const seller = document.createElement("p");
+  seller.innerHTML = `<span class="fw-bold">Seller:</span> ${item.seller.name}`;
+
   const created = document.createElement("p");
-  created.textContent = `Created: ${new Date(item.created).toDateString()}`;
+  created.innerHTML = `<span class="fw-bold">Created:</span> ${new Date(item.created).toDateString()}`;
+
   const bids = document.createElement("p");
-  bids.textContent = `Bids: ${item._count.bids}`;
+  bids.innerHTML = `<span class="fw-bold">Bids:</span> ${item._count.bids}`;
+
+  const highestBid = document.createElement("p");
+  const lastBid = item.bids[item.bids.length - 1];
+  const highestBidAmount = lastBid ? lastBid.amount : 0;
+  highestBid.innerHTML = `<span class="fw-bold">Highest Bid:</span> <span class="fw-normal">${highestBidAmount} credits</span>`;
 
   const buttonDiv = document.createElement("div");
   buttonDiv.classList.add("text-center", "mt-2");
@@ -61,8 +68,11 @@ export function createListingElement(item) {
   card.appendChild(cardBody);
   cardBody.appendChild(title);
   cardBody.appendChild(infoContainer);
+
   infoContainer.appendChild(bids);
+  infoContainer.appendChild(highestBid);
   infoContainer.appendChild(created);
+  infoContainer.appendChild(seller);
   cardBody.appendChild(buttonDiv);
   buttonDiv.appendChild(viewButton);
   listingWrapper.appendChild(card);

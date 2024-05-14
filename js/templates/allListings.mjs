@@ -1,11 +1,7 @@
-
 import { countdownTimer } from "../utils/countdown.mjs";
-
-
+import { storeScrollPosition } from "../utils/scroll/scrollPosition.mjs";
 
 export function createListingElement(item) {
-
-
   const listingWrapper = document.createElement("div");
   listingWrapper.classList.add("col-10", "col-md-6", "col-lg-4", "m-auto", "mb-3");
 
@@ -37,11 +33,10 @@ export function createListingElement(item) {
 
   const infoContainer = document.createElement("p");
   infoContainer.classList.add("div");
-const created = document.createElement("p");
-created.textContent = `Created: ${new Date(item.created).toDateString()}`;
+  const created = document.createElement("p");
+  created.textContent = `Created: ${new Date(item.created).toDateString()}`;
   const bids = document.createElement("p");
   bids.textContent = `Bids: ${item._count.bids}`;
-
 
   const buttonDiv = document.createElement("div");
   buttonDiv.classList.add("text-center", "mt-2");
@@ -50,10 +45,11 @@ created.textContent = `Created: ${new Date(item.created).toDateString()}`;
 
   viewButton.textContent = "View Listing";
   viewButton.addEventListener("click", () => {
+    storeScrollPosition();
     // Redirect to singleListing.html with the listing ID as a URL parameter
     window.location.href = `../../listings/singleListing/?id=${item.id}`;
   });
- 
+
   cardOverlay.appendChild(overlayInner);
   overlayInner.appendChild(timerTitle);
   overlayInner.appendChild(timerSpan);
@@ -71,10 +67,9 @@ created.textContent = `Created: ${new Date(item.created).toDateString()}`;
 }
 
 export function renderAllListingTemplates(listingDataList, parent) {
-  parent.innerHTML = ""; 
+  parent.innerHTML = "";
   listingDataList.forEach((listingData) => {
     const listingElement = createListingElement(listingData);
     parent.appendChild(listingElement);
   });
 }
-

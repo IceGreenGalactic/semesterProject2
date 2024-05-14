@@ -49,3 +49,11 @@ span {
   max-height: 200px;
   object-fit: cover;
 }
+
+.scroll-to-top-button {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  z-index: 1000;
+  display: none;
+}

@@ -24,6 +24,9 @@ export function createListingElement(item) {
   timerSpan.classList.add("primary-color-text");
   timerSpan.setAttribute("id", "timer");
   timerSpan.textContent = countdownTimer(item);
+  setInterval(() => {
+    timerSpan.textContent = countdownTimer(item);
+  }, 1000);
 
   const cardBody = document.createElement("div");
   cardBody.classList.add("card-body", "m-auto");

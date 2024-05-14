@@ -8,4 +8,5 @@ document.addEventListener("DOMContentLoaded", function () {
   utils.updateProfileNav();
   listeners.setLoginFormListener();
   auth.handleLogout();
+  utils.createScrollToTopButton();
 });

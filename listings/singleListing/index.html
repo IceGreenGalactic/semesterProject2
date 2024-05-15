@@ -1,3 +1,4 @@
+!
 <!doctype html>
 <html lang="en">
   <head>
@@ -162,7 +163,7 @@
 
     <main class="d-flex flex-column min-vh-100">
       <div class="container my-4">
-        <button id="goBackButton" class="btn btn-outline-primary mx-5 my-3">
+        <button id="goBackButton" onclick="history.back();" class="btn btn-outline-primary mx-5 my-3">
           <i class="fa-solid fa-left-long"></i> Go back
         </button>
         <div id="singleListingItem"></div>
@@ -175,28 +176,4 @@
       </div>
     </footer>
   </body>
-  <!-- Bid Modal -->
-  <div class="modal fade" id="bidModal" tabindex="-1" aria-labelledby="bidModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="bidModalLabel">Place Your Bid</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <!-- Bid form goes here -->
-          <form>
-            <div class="mb-3">
-              <label for="bidAmount" class="form-label">Bid Amount ($)</label>
-              <input type="number" class="form-control" id="bidAmount" placeholder="Enter your bid amount" />
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Place Bid</button>
-        </div>
-      </div>
-    </div>
-  </div>
 </html>

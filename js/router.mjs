@@ -12,10 +12,11 @@ export function router() {
 
     case "/listings/allListings/":
       listeners.displayAllListings();
+      utils.restoreSelectedSortOption();
       return;
+
     case "/listings/singleListing/":
       listeners.displaySingleListing();
-      utils.goBackButton();
       return;
   }
 }

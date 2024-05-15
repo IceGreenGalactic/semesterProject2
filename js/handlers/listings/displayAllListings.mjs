@@ -35,13 +35,14 @@ if (showMoreBtn) {
   });
 }
 
-const sortOptions = document.getElementById("sortOptions");
+export const sortOptions = document.getElementById("sortOptions");
 if (sortOptions) {
   sortOptions.addEventListener("change", async (event) => {
     const [sort, sortOrder] = event.target.value.split("-");
     currentSort = sort;
     currentSortOrder = sortOrder;
     currentPage = 1;
+    sessionStorage.setItem("selectedSortOption", `${currentSort}-${currentSortOrder}`);
     await displayAllListings(currentSort, currentSortOrder, currentPage);
   });
 }

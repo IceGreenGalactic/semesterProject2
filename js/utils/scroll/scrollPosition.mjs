@@ -1,11 +1,9 @@
-import { getAllListings } from "../../api/listings/get.mjs";
-
 export function storeScrollPosition() {
   const scrollPosition = window.scrollY;
   sessionStorage.setItem("scrollPosition", scrollPosition);
 }
 
-export function restoreScrollPosition() {
+export async function restoreScrollPosition() {
   const scrollPosition = sessionStorage.getItem("scrollPosition");
   if (scrollPosition !== null) {
     window.scrollTo(0, parseInt(scrollPosition));
@@ -13,19 +11,23 @@ export function restoreScrollPosition() {
   }
 }
 
-// go back button
-export async function goBackButton() {
-  document.getElementById("goBackButton").addEventListener("click", async () => {
-    try {
-      const listingsResponse = await getAllListings();
-      history.back();
-      if (listingsResponse) {
-        restoreScrollPosition();
-      }
-    } catch (error) {
-      console.error("Error fetching listings data", error);
-    }
-  });
+export function restoreSelectedSortOption() {
+  const storedSortOption = sessionStorage.getItem("selectedSortOption");
+
+  const sortOptionsElement = document.getElementById("sortOptions");
+
+  if (storedSortOption && sortOptionsElement) {
+    sortOptionsElement.value = storedSortOption;
+
+    const event = new Event("change");
+    sortOptionsElement.dispatchEvent(event);
+
+    setTimeout(() => {
+      restoreScrollPosition();
+    }, 500);
+  } else {
+    console.warn("Sort options element not found in the DOM or stored sort option not available.");
+  }
 }
 
 //scroll to top button

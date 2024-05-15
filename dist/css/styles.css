@@ -11902,6 +11902,10 @@ span {
   display: none;
 }
 
+.category-card {
+  cursor: pointer;
+}
+
 ul > .border-bottom,
 .dropdown-item {
   border-bottom: 1px solid #f2d7b6 !important;
@@ -11950,11 +11954,6 @@ ul > .border-bottom,
   background-color: #8b4513;
   border-color: #8b4513;
   color: #fff;
-}
-
-.btn-outline-primary {
-  border-color: #8b4513;
-  color: #8b4513;
 }
 
 /*# sourceMappingURL=styles.css.map */

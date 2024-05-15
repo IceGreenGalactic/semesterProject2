@@ -69,7 +69,7 @@ export function createSingleListingElement(item) {
 
   const showMoreBtn = document.createElement("button");
   showMoreBtn.classList.add("btn", "btn-link", "primary-color-text", "mb-2", "me-auto");
-  showMoreBtn.textContent = "show all bids  (↓)";
+  showMoreBtn.textContent = "show bidding history (↓)";
   showMoreBtn.addEventListener("click", () => {
     bidsContainer.classList.toggle("d-none");
     showMoreBtn.textContent = bidsContainer.classList.contains("d-none") ? "Show all bids  (↓)" : "Show Less (↑)";

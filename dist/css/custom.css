@@ -53,4 +53,8 @@ span {
   display: none;
 }
 
+.category-card {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=custom.css.map */

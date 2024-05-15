@@ -36,3 +36,21 @@ export async function getListingById(id) {
     throw error;
   }
 }
+
+export async function getListingsByTags(tags, page = 1, limit = 100) {
+  const queryParams = `_tag=${tags.join(",")}&_active=true&page=${page}&limit=${limit}&_seller=true&_bids=true`;
+  const url = `${listingsEndpoint}?${queryParams}`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch listings: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.data;
+  } catch (error) {
+    console.error("Error fetching listings:", error);
+    return [];
+  }
+}

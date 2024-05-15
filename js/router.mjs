@@ -18,5 +18,11 @@ export function router() {
     case "/listings/singleListing/":
       listeners.displaySingleListing();
       return;
+
+    default:
+      if (path.startsWith("/listings/")) {
+        listeners.displayListingsCategory();
+      }
+      return;
   }
 }

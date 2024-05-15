@@ -1,7 +1,8 @@
 import { isLoggedIn } from "../utils/index.mjs";
-import { openLoginModal, openBidModal } from "../handlers/index.mjs";
+import { openLoginModal } from "../handlers/index.mjs";
 import { countdownTimer } from "../utils/countdown.mjs";
 import { createCarouselElement } from "./carousel.mjs";
+import { placeBid } from "../api/listings/putBid.mjs";
 
 export function createSingleListingElement(item) {
   const listingWrapper = document.createElement("div");
@@ -105,7 +106,7 @@ export function createSingleListingElement(item) {
   placeBidBtn.textContent = "place a bid";
   placeBidBtn.addEventListener("click", () => {
     if (isLoggedIn()) {
-      openBidModal();
+      placeBid();
     } else {
       openLoginModal();
     }

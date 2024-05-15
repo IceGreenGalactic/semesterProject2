@@ -1,12 +1,11 @@
 import { listingsEndpoint } from "../api_constants.mjs";
 
-const QUERY_PARAMS = "_seller=true&_bids=true";
+export async function getAllListings(page = 1, limit = 10, sort = "title", sortOrder = "asc") {
+  const queryParams = `_seller=true&_bids=true&page=${page}&limit=${limit}&sort=${sort}&sortOrder=${sortOrder}`;
+  const getAllUrl = `${listingsEndpoint}?${queryParams}`;
 
-const getAllUrl = `${listingsEndpoint}?${QUERY_PARAMS}`;
-
-export async function getAllListings() {
   try {
-    const response = await fetch(`${getAllUrl}`);
+    const response = await fetch(getAllUrl);
     if (!response.ok) {
       throw new Error(`Failed to fetch listings: ${response.status}`);
     }
@@ -18,6 +17,7 @@ export async function getAllListings() {
 }
 
 export async function getListingById(id) {
+  const QUERY_PARAMS = "_seller=true&_bids=true";
   if (!id) {
     throw new Error("getListingById requires a listing ID");
   }

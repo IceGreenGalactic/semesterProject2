@@ -80,7 +80,6 @@ export function createListingElement(item) {
 }
 
 export function renderAllListingTemplates(listingDataList, parent) {
-  parent.innerHTML = "";
   listingDataList.forEach((listingData) => {
     const listingElement = createListingElement(listingData);
     parent.appendChild(listingElement);

@@ -161,18 +161,32 @@
     </header>
 
     <main class="d-flex flex-column min-vh-100">
-      <div class="col-md-12 my-4">
-        <form class="d-flex col-10 col-xl-6 m-auto">
+      <h1 class="headline-text mx-auto mt-3">All auction items</h1>
+      <div class="container row col-12 col-md-10 mx-auto my-4 row">
+        <form class="d-flex col-10 col-lg-5 col-xl-6 m-auto">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
+        <!-- Sort Options -->
+        <div class="col-10 col-lg-5 m-auto mt-4 mt-lg-0">
+          <div class="d-flex align-items-center input-group">
+            <label for="sortOptions" class="input-group-text">Sort By:</label>
+            <select class="form-control" id="sortOptions">
+              <option value="created-desc">New Listings</option>
+              <option value="endsAt-desc">Ending soon</option>
+              <option value="title-asc">Title A-Z</option>
+              <option value="title-desc">Title Z-A</option>
+            </select>
+            <i class="fa-solid fa-arrow-down-wide-short p-2 input-group-text"></i>
+          </div>
+        </div>
       </div>
 
       <!-- Auction Items (Fetched from API) -->
       <div class="container my-4">
         <div id="allListings" class="row m h-auto"></div>
       </div>
-      <button class="btn btn-link">show more items</button>
+      <button class="btn btn-link" id="showMoreBtn">show more items</button>
     </main>
     <footer class="footer border-top pt-3">
       <div class="container">

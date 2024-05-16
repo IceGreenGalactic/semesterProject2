@@ -4,6 +4,7 @@ import { apiKey } from "../authFetch.mjs";
 import { closeLoginModal } from "../../handlers/index.mjs";
 import { showLoader, hideLoader } from "../../utils/loader.mjs";
 import { showMessage } from "../../utils/messages.mjs";
+import { updateProfileNav } from "../../utils/index.mjs";
 
 export async function loginUser(email, password) {
   try {
@@ -36,9 +37,10 @@ export async function loginUser(email, password) {
     save("profile", profile);
 
     if (accessToken) {
+      updateProfileNav();
       setTimeout(() => {
         closeLoginModal();
-      }, 2000);
+      }, 500);
     } else {
       const error = new Error("No access token provided, please register");
       showMessage(error.message, "error");

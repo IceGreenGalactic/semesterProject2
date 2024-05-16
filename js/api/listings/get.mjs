@@ -1,5 +1,6 @@
 import { listingsEndpoint } from "../api_constants.mjs";
 import { showLoader, hideLoader } from "../../utils/loader.mjs";
+import { showMessage } from "../../utils/messages.mjs";
 
 export async function getAllListings(page = 1, limit = 10, sort = "created", sortOrder = "desc") {
   const queryParams = `_seller=true&_bids=true&page=${page}&limit=${limit}&sort=${sort}&sortOrder=${sortOrder}`;
@@ -9,7 +10,9 @@ export async function getAllListings(page = 1, limit = 10, sort = "created", sor
     showLoader();
     const response = await fetch(getAllUrl);
     if (!response.ok) {
-      throw new Error(`Failed to fetch listings: ${response.status}`);
+      const error = new Error(`Failed to fetch listings: ${response.status}`);
+      showMessage(error.message, "error");
+      throw error;
     }
     return await response.json();
   } catch (error) {
@@ -23,7 +26,9 @@ export async function getAllListings(page = 1, limit = 10, sort = "created", sor
 export async function getListingById(id) {
   const QUERY_PARAMS = "_seller=true&_bids=true";
   if (!id) {
-    throw new Error("getListingById requires a listing ID");
+    const error = new Error("getListingById requires a listing ID");
+    showMessage(error.message, "warning");
+    throw error;
   }
 
   const getListingByIdURL = `${listingsEndpoint}/${id}?${QUERY_PARAMS}`;
@@ -32,12 +37,15 @@ export async function getListingById(id) {
     showLoader();
     const response = await fetch(getListingByIdURL);
     if (!response.ok) {
-      throw new Error(`Failed to fetch listing: ${response.status}`);
+      const error = new Error(`Failed to fetch listing: ${response.status}`);
+      showMessage(error.message, "error");
+      throw error;
     }
 
     return await response.json();
   } catch (error) {
     console.error("Error fetching listing by ID:", error);
+    showMessage(`Error fetching listing by ID: ${error.message}`, "error");
     throw error;
   } finally {
     hideLoader();
@@ -52,13 +60,16 @@ export async function getListingsByTags(tags, page = 1, limit = 100) {
     showLoader();
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error(`Failed to fetch listings: ${response.status}`);
+      const error = new Error(`Failed to fetch listings: ${response.status}`);
+      showMessage(error.message, "error");
+      throw error;
     }
 
     const data = await response.json();
     return data.data;
   } catch (error) {
     console.error("Error fetching listings:", error);
+    showMessage(`Error fetching listings: ${error.message}`, "error");
     return [];
   } finally {
     hideLoader();

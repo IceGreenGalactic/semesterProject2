@@ -1,6 +1,7 @@
 import { getAllListings } from "../../api/listings/get.mjs";
 import { renderAllListingTemplates } from "../../templates/allListings.mjs";
 import { scrollToTop, createScrollToTopButton } from "../../utils/index.mjs";
+import { showMessage } from "../../utils/messages.mjs";
 
 let currentPage = 1;
 let currentSort = "created";
@@ -24,6 +25,7 @@ export async function displayAllListings(sort = "created", sortOrder = "desc", p
     }
   } catch (error) {
     console.error("Error fetching and displaying listings", error);
+    showMessage("Failed to fetch and display listings. Please try again later", "error");
   }
 }
 

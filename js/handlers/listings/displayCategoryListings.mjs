@@ -1,5 +1,6 @@
 import { getListingsByTags } from "../../api/listings/get.mjs";
 import { renderAllListingTemplates } from "../../templates/allListings.mjs";
+import { showMessage } from "../../utils/messages.mjs";
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 export async function displayListingsCategory() {
@@ -32,6 +33,7 @@ export async function displayListingsCategory() {
         renderAllListingTemplates(allListings, allListingsContainer);
       } catch (error) {
         console.error("Error fetching listings:", error);
+        showMessage("Failed to fetch listings, please try again later", "error");
         const allListingsContainer = document.getElementById("allListings");
         allListingsContainer.innerHTML = "<p>Error fetching listings. Please try again later.</p>";
       }

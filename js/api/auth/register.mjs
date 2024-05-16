@@ -1,6 +1,6 @@
 import { registerUserEndpoint } from "../api_constants.mjs";
 import { openLoginModal } from "../../handlers/index.mjs";
-import { closeRegistrationModal } from "../../handlers/profile/registrationModal.mjs";
+import { closeRegistrationModal } from "../../handlers/modals/registrationModal.mjs";
 
 export async function registerUser(profile) {
   try {
@@ -31,8 +31,8 @@ export async function registerUser(profile) {
       console.log(`Registration failed: ${errorMessage}`);
       if (errorMessage === "Profile already exists") {
         setTimeout(() => {
-         closeRegistrationModal();
-         openLoginModal();
+          closeRegistrationModal();
+          openLoginModal();
         }, 3000);
       }
     }

@@ -1,9 +1,12 @@
 import { registerUserEndpoint } from "../api_constants.mjs";
 import { openLoginModal } from "../../handlers/index.mjs";
 import { closeRegistrationModal } from "../../handlers/modals/registrationModal.mjs";
+import { showLoader, hideLoader } from "../../utils/loader.mjs";
+import { showMessage } from "../../utils/messages.mjs";
 
 export async function registerUser(profile) {
   try {
+    showLoader();
     const response = await fetch(registerUserEndpoint, {
       headers: {
         "Content-Type": "application/json",
@@ -19,7 +22,7 @@ export async function registerUser(profile) {
     const result = await response.json();
 
     if (response.ok) {
-      console.log("Registration successful! Please log in to continue.", "success");
+      showMessage("Registration successful! Please log in to continue.", "success");
 
       setTimeout(() => {
         closeRegistrationModal();
@@ -28,7 +31,8 @@ export async function registerUser(profile) {
       return result;
     } else {
       const errorMessage = result?.errors?.[0]?.message || "Registration failed. Please try again.";
-      console.log(`Registration failed: ${errorMessage}`);
+      showMessage(`Registration failed: ${errorMessage}`, "error");
+
       if (errorMessage === "Profile already exists") {
         setTimeout(() => {
           closeRegistrationModal();
@@ -38,6 +42,9 @@ export async function registerUser(profile) {
     }
   } catch (error) {
     console.error("Error during registration:", error.message);
+    showMessage(`Error during registration: ${error.message}`, "error");
     throw error;
+  } finally {
+    hideLoader();
   }
 }

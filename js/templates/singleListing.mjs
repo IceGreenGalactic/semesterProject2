@@ -3,6 +3,7 @@ import { openLoginModal } from "../handlers/index.mjs";
 import { countdownTimer } from "../utils/countdown.mjs";
 import { createCarouselElement } from "./carousel.mjs";
 import { placeBid } from "../api/listings/putBid.mjs";
+import { showMessage } from "../utils/messages.mjs";
 
 export function createSingleListingElement(item) {
   const listingWrapper = document.createElement("div");
@@ -153,5 +154,6 @@ export async function renderSingleListingTemplate(listingData, parent) {
     }
   } catch (error) {
     console.error("Error rendering listing template:", error);
+    showMessage("An error has occored, pleas refresh page or try again later", "error");
   }
 }

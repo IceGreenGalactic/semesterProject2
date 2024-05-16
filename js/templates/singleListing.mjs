@@ -4,8 +4,14 @@ import { countdownTimer } from "../utils/countdown.mjs";
 import { createCarouselElement } from "./carousel.mjs";
 import { placeBid } from "../api/listings/putBid.mjs";
 import { showMessage } from "../utils/messages.mjs";
+import { load } from "../storage/token.mjs";
+import * as handlers from "../handlers/index.mjs";
 
 export function createSingleListingElement(item) {
+  const userProfile = load("profile");
+  const currentUser = userProfile;
+  const isAuthor = currentUser && item.data.seller.email === currentUser.email;
+
   const listingWrapper = document.createElement("div");
   listingWrapper.classList.add("card", "col-10", "m-auto", "mb-3");
 
@@ -113,6 +119,28 @@ export function createSingleListingElement(item) {
     }
   });
 
+  const authorButtonsContainer = document.createElement("div");
+  if (isAuthor) {
+    const editButton = document.createElement("button");
+    editButton.classList.add("btn", "btn-link", "me-2");
+    editButton.innerHTML = '<i class="fas fa-edit"></i>';
+    editButton.value = item.data.id;
+    editButton.addEventListener("click", (event) => {
+      handlers.handleEditButtonClick(event, item.data.id);
+    });
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("btn", "btn-link", "me-2");
+    deleteButton.innerHTML = '<i class="fas fa-trash-alt text-danger"></i>';
+    deleteButton.value = item.data.id;
+    deleteButton.addEventListener("click", (event) => {
+      handlers.handleDeleteButtonClick(event, item.data.id, "single");
+    });
+
+    authorButtonsContainer.appendChild(editButton);
+    authorButtonsContainer.appendChild(deleteButton);
+  }
+
   card.appendChild(title);
   cardOverlay.appendChild(overlayInner);
   overlayInner.appendChild(timerTitle);
@@ -135,6 +163,7 @@ export function createSingleListingElement(item) {
   cardBody.appendChild(bidForm);
   bidForm.appendChild(bidInput);
   bidForm.appendChild(placeBidBtn);
+  bidForm.appendChild(authorButtonsContainer);
 
   listingWrapper.appendChild(card);
 

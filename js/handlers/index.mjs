@@ -10,3 +10,4 @@ export * from "./listings/displaySingleListing.mjs";
 export * from "./listings/displaySomeListings.mjs";
 
 export * from "./listings/displayCategoryListings.mjs";
+export * from "./listings/createListing.mjs";

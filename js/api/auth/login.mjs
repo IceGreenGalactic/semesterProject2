@@ -2,9 +2,11 @@ import { save } from "../../storage/token.mjs";
 import { loginUserEndpoint } from "../api_constants.mjs";
 import { apiKey } from "../authFetch.mjs";
 import { closeLoginModal } from "../../handlers/index.mjs";
+import { showLoader, hideLoader } from "../../utils/loader.mjs";
 
 export async function loginUser(email, password) {
   try {
+    showLoader();
     const response = await fetch(loginUserEndpoint, {
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +26,7 @@ export async function loginUser(email, password) {
       }
     }
 
-    const { data } = await response.json(); 
+    const { data } = await response.json();
     const { accessToken, ...profile } = data;
     save("accessToken", accessToken);
     save("profile", profile);
@@ -39,5 +41,7 @@ export async function loginUser(email, password) {
   } catch (error) {
     console.error("Error during login:", error.message);
     throw error;
+  } finally {
+    hideLoader();
   }
 }

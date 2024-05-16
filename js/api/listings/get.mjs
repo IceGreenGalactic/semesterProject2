@@ -1,10 +1,12 @@
 import { listingsEndpoint } from "../api_constants.mjs";
+import { showLoader, hideLoader } from "../../utils/loader.mjs";
 
 export async function getAllListings(page = 1, limit = 10, sort = "created", sortOrder = "desc") {
   const queryParams = `_seller=true&_bids=true&page=${page}&limit=${limit}&sort=${sort}&sortOrder=${sortOrder}`;
   const getAllUrl = `${listingsEndpoint}?${queryParams}`;
 
   try {
+    showLoader();
     const response = await fetch(getAllUrl);
     if (!response.ok) {
       throw new Error(`Failed to fetch listings: ${response.status}`);
@@ -13,6 +15,8 @@ export async function getAllListings(page = 1, limit = 10, sort = "created", sor
   } catch (error) {
     console.error("Error fetching listings:", error);
     throw error;
+  } finally {
+    hideLoader();
   }
 }
 
@@ -25,6 +29,7 @@ export async function getListingById(id) {
   const getListingByIdURL = `${listingsEndpoint}/${id}?${QUERY_PARAMS}`;
 
   try {
+    showLoader();
     const response = await fetch(getListingByIdURL);
     if (!response.ok) {
       throw new Error(`Failed to fetch listing: ${response.status}`);
@@ -34,6 +39,8 @@ export async function getListingById(id) {
   } catch (error) {
     console.error("Error fetching listing by ID:", error);
     throw error;
+  } finally {
+    hideLoader();
   }
 }
 
@@ -42,6 +49,7 @@ export async function getListingsByTags(tags, page = 1, limit = 100) {
   const url = `${listingsEndpoint}?${queryParams}`;
 
   try {
+    showLoader();
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Failed to fetch listings: ${response.status}`);
@@ -52,5 +60,7 @@ export async function getListingsByTags(tags, page = 1, limit = 100) {
   } catch (error) {
     console.error("Error fetching listings:", error);
     return [];
+  } finally {
+    hideLoader();
   }
 }

@@ -1,9 +1,10 @@
 import { registerUserEndpoint } from "../api_constants.mjs";
 import { openLoginModal } from "../../handlers/index.mjs";
 import { closeRegistrationModal } from "../../handlers/modals/registrationModal.mjs";
-
+import { showLoader, hideLoader } from "../../utils/loader.mjs";
 export async function registerUser(profile) {
   try {
+    showLoader();
     const response = await fetch(registerUserEndpoint, {
       headers: {
         "Content-Type": "application/json",
@@ -39,5 +40,7 @@ export async function registerUser(profile) {
   } catch (error) {
     console.error("Error during registration:", error.message);
     throw error;
+  } finally {
+    hideLoader();
   }
 }

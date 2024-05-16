@@ -18,6 +18,9 @@ export function router() {
     case "/listings/singleListing/":
       listeners.displaySingleListing();
       return;
+    case "/listings/createListing":
+      listeners.handleFormSubmission();
+      return;
 
     default:
       if (path.startsWith("/listings/")) {

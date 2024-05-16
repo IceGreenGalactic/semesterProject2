@@ -1,6 +1,6 @@
 import { listingsEndpoint } from "../api_constants.mjs";
 
-export async function getAllListings(page = 1, limit = 10, sort = "title", sortOrder = "asc") {
+export async function getAllListings(page = 1, limit = 10, sort = "created", sortOrder = "desc") {
   const queryParams = `_seller=true&_bids=true&page=${page}&limit=${limit}&sort=${sort}&sortOrder=${sortOrder}`;
   const getAllUrl = `${listingsEndpoint}?${queryParams}`;
 

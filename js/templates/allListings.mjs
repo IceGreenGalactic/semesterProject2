@@ -21,6 +21,7 @@ export function createListingElement(item) {
   const cardOverlay = document.createElement("div");
   cardOverlay.classList.add("card-img-overlay", "d-flex", "flex-column", "text-center");
   const overlayInner = document.createElement("div");
+  cardOverlay.style.pointerEvents = "none";
   overlayInner.classList.add("bg-light", "card", "rounded", "p-1");
   const timerTitle = document.createElement("h5");
   timerTitle.classList.add("headline-text", "mb-0");

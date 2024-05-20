@@ -12,13 +12,12 @@ export function setRegisterFormListener() {
       profile.avatar = { url: avatarUrl, alt: "Avatar alt text" };
 
       registerUser(profile)
-      .then(() => {})
-      .catch((error) => {
-        console.error("Error registering:", error);
-      
-      });
-  });
-}
+        .then(() => {})
+        .catch((error) => {
+          console.error("Error registering:", error);
+        });
+    });
+  }
 }
 
 document.addEventListener("DOMContentLoaded", function () {

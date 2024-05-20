@@ -1,5 +1,3 @@
-
-
 /**
  * Saves a value to the local storage with the specified accessToken.
  * @param {string} accessToken - The accessToken under which to save the value.
@@ -22,7 +20,6 @@ export function load(accessToken) {
     return null;
   }
 }
-
 
 /**
  * Removes a value from the local storage using the specified accessToken.

@@ -135,7 +135,7 @@ export function createSingleListingElement(item) {
     deleteButton.innerHTML = '<i class="fas fa-trash-alt text-danger"></i>';
     deleteButton.value = item.data.id;
     deleteButton.addEventListener("click", (event) => {
-      handlers.handleDeleteButtonClick(event, item.data.id);
+      handlers.handleDeleteButtonClick(event, item.data.id, "single");
     });
 
     authorButtonsContainer.appendChild(editButton);

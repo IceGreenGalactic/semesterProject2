@@ -24,7 +24,8 @@ export function createSingleListingElement(item) {
   imgCarousel.classList.add("col-10", "m-auto");
   // Countdown timer overlay
   const cardOverlay = document.createElement("div");
-  cardOverlay.classList.add("card-img-overlay", "d-flex", "flex-column", "text-center", "align-items-center");
+  cardOverlay.classList.add("card-img-overlay", "d-flex", "flex-column", "text-center");
+  cardOverlay.style.pointerEvents = "none";
   const overlayInner = document.createElement("div");
   overlayInner.classList.add("bg-light", "card", "rounded", "p-1");
   const timerTitle = document.createElement("h5");
@@ -76,10 +77,10 @@ export function createSingleListingElement(item) {
 
   const showMoreBtn = document.createElement("button");
   showMoreBtn.classList.add("btn", "btn-link", "primary-color-text", "mb-2", "me-auto");
-  showMoreBtn.textContent = "show bidding history (↓)";
+  showMoreBtn.textContent = "Show bidding history (↓)";
   showMoreBtn.addEventListener("click", () => {
     bidsContainer.classList.toggle("d-none");
-    showMoreBtn.textContent = bidsContainer.classList.contains("d-none") ? "Show all bids  (↓)" : "Show Less (↑)";
+    showMoreBtn.textContent = bidsContainer.classList.contains("d-none") ? "Show bidding history (↓)" : "Show Less (↑)";
   });
 
   const bidsContainer = document.createElement("div");
@@ -109,7 +110,7 @@ export function createSingleListingElement(item) {
   bidInput.classList.add("form-control", "mb-2");
 
   const placeBidBtn = document.createElement("button");
-  placeBidBtn.classList.add("btn", "btn-primary", "btn-sm", "col-4", "my-4", "m-auto");
+  placeBidBtn.classList.add("btn", "btn-primary", "btn-sm", "col-10", "col-sm-6", "col-md-4", "my-4", "m-auto");
   placeBidBtn.textContent = "place a bid";
   placeBidBtn.addEventListener("click", () => {
     if (isLoggedIn()) {
@@ -146,7 +147,7 @@ export function createSingleListingElement(item) {
   overlayInner.appendChild(timerTitle);
   overlayInner.appendChild(timerSpan);
   imgContainer.appendChild(imgCarousel);
-  imgCarousel.appendChild(cardOverlay);
+  imgContainer.appendChild(cardOverlay);
   card.appendChild(imgContainer);
   card.appendChild(title);
   card.appendChild(contentContainer);

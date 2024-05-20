@@ -22,6 +22,12 @@ export function router() {
       listeners.handleFormSubmission();
       return;
 
+    case "/profile/":
+      listeners.updateProfilePage();
+      listeners.displayUserListings();
+      listeners.displayUserWins();
+      return;
+
     default:
       if (path.startsWith("/listings/")) {
         listeners.displayListingsCategory();

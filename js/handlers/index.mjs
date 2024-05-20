@@ -11,3 +11,5 @@ export * from "./listings/displaySomeListings.mjs";
 
 export * from "./listings/displayCategoryListings.mjs";
 export * from "./listings/createListing.mjs";
+export * from "./listings/deleteListing.mjs";
+export * from "./listings/editListing.mjs";

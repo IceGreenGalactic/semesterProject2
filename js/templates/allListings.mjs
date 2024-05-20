@@ -1,7 +1,13 @@
 import { countdownTimer } from "../utils/countdown.mjs";
 import { storeScrollPosition } from "../utils/scroll/scrollPosition.mjs";
+import { load } from "../storage/token.mjs";
+import * as handlers from "../handlers/index.mjs";
 
 export function createListingElement(item) {
+  const userProfile = load("profile");
+  const currentUser = userProfile;
+  const isAuthor = currentUser && item.seller.email === currentUser.email;
+
   const listingWrapper = document.createElement("div");
   listingWrapper.classList.add("col-10", "col-md-6", "col-lg-4", "m-auto", "mb-3");
   const card = document.createElement("div");
@@ -29,9 +35,13 @@ export function createListingElement(item) {
 
   const cardBody = document.createElement("div");
   cardBody.classList.add("card-body", "m-auto");
-  const title = document.createElement("h3");
+  const title = document.createElement("h4");
   title.classList.add("card-title", "headline-text", "text-center");
   title.textContent = item.title;
+  title.style.overflow = "hidden";
+  title.style.textOverflow = "ellipsis";
+  title.style.whiteSpace = "nowrap";
+  title.style.maxWidth = "210px";
 
   const infoContainer = document.createElement("div");
   const seller = document.createElement("p");
@@ -59,6 +69,27 @@ export function createListingElement(item) {
     // Redirect to singleListing.html with the listing ID as a URL parameter
     window.location.href = `../../listings/singleListing/?id=${item.id}`;
   });
+  const authorButtonsContainer = document.createElement("div");
+  if (isAuthor) {
+    const editButton = document.createElement("button");
+    editButton.classList.add("btn", "btn-link", "me-2");
+    editButton.innerHTML = '<i class="fas fa-edit"></i>';
+    editButton.value = item.id;
+    editButton.addEventListener("click", (event) => {
+      handlers.handleEditButtonClick(event, item.id);
+    });
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("btn", "btn-link", "me-2");
+    deleteButton.innerHTML = '<i class="fas fa-trash-alt text-danger"></i>';
+    deleteButton.value = item.id;
+    deleteButton.addEventListener("click", (event) => {
+      handlers.handleDeleteButtonClick(event, item.id);
+    });
+
+    authorButtonsContainer.appendChild(editButton);
+    authorButtonsContainer.appendChild(deleteButton);
+  }
 
   cardOverlay.appendChild(overlayInner);
   overlayInner.appendChild(timerTitle);
@@ -75,6 +106,7 @@ export function createListingElement(item) {
   infoContainer.appendChild(seller);
   cardBody.appendChild(buttonDiv);
   buttonDiv.appendChild(viewButton);
+  buttonDiv.appendChild(authorButtonsContainer);
   listingWrapper.appendChild(card);
   return listingWrapper;
 }

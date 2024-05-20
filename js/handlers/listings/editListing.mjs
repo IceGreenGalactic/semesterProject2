@@ -5,6 +5,7 @@ import { authFetch } from "../../api/authFetch.mjs";
 import { updateListing } from "../../api/listings/edit.mjs";
 import { displayAllListings } from "./displayAllListings.mjs";
 import { openEditModal, closeEditModal } from "../modals/editModal.mjs";
+import { displayUserListings } from "../index.mjs";
 
 export async function handleEditButtonClick(event, listingId, pageType) {
   event.preventDefault();
@@ -57,6 +58,8 @@ export function attachUpdateListingListener(listingId, pageType) {
       closeEditModal();
       if (pageType === "single") {
         window.location.href = "../../listings/allListings/";
+      } else if (pageType === "profile") {
+        displayUserListings();
       } else {
         displayAllListings();
       }

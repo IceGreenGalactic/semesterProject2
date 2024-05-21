@@ -75,23 +75,6 @@ export function createSingleListingElement(item) {
   currentBids.classList.add("text-start");
   currentBids.textContent = `Current bids: ${item.data._count.bids} `;
 
-  const showMoreBtn = document.createElement("button");
-  showMoreBtn.classList.add("btn", "btn-link", "primary-color-text", "mb-2", "me-auto");
-  showMoreBtn.textContent = "Show bidding history (↓)";
-  showMoreBtn.addEventListener("click", () => {
-    bidsContainer.classList.toggle("d-none");
-    showMoreBtn.textContent = bidsContainer.classList.contains("d-none") ? "Show bidding history (↓)" : "Show Less (↑)";
-  });
-
-  const bidsContainer = document.createElement("div");
-  bidsContainer.classList.add("card-text", "text-start", "mb-2", "bid-container", "d-none");
-  item.data.bids.forEach((bid) => {
-    const bidElement = document.createElement("p");
-    bidElement.textContent = `${bid.bidder.name}: Amount: ${bid.amount}`;
-    bidElement.classList.add("border-bottom");
-    bidsContainer.appendChild(bidElement);
-  });
-
   const highestBid = document.createElement("h4");
   highestBid.classList.add("card-text", "primary-color-text", "mt-4", "text-start");
   const lastBid = item.data.bids[item.data.bids.length - 1];
@@ -111,10 +94,25 @@ export function createSingleListingElement(item) {
 
   const placeBidBtn = document.createElement("button");
   placeBidBtn.classList.add("btn", "btn-primary", "btn-sm", "col-10", "col-sm-6", "col-md-4", "my-4", "m-auto");
-  placeBidBtn.textContent = "place a bid";
-  placeBidBtn.addEventListener("click", () => {
+  placeBidBtn.textContent = "Place a bid";
+  placeBidBtn.addEventListener("click", async (event) => {
+    event.preventDefault();
     if (isLoggedIn()) {
-      placeBid();
+      const bidAmount = bidInput.value;
+      const auctionId = item.data.id;
+
+      // Updates the bid UI callback
+      const updateBidUI = (newBidAmount, bidCount) => {
+        highestBid.textContent = `Highest Bid: ${newBidAmount} credits`;
+        currentBids.textContent = `Current bids: ${bidCount}`;
+
+        const bidElement = document.createElement("p");
+        bidElement.textContent = `${currentUser.name}: Amount: ${newBidAmount}`;
+        bidElement.classList.add("border-bottom");
+        bidsContainer.appendChild(bidElement);
+      };
+
+      await placeBid(auctionId, bidAmount, updateBidUI);
     } else {
       openLoginModal();
     }
@@ -141,8 +139,6 @@ export function createSingleListingElement(item) {
     authorButtonsContainer.appendChild(editButton);
     authorButtonsContainer.appendChild(deleteButton);
   }
-
-  card.appendChild(title);
   cardOverlay.appendChild(overlayInner);
   overlayInner.appendChild(timerTitle);
   overlayInner.appendChild(timerSpan);
@@ -158,13 +154,64 @@ export function createSingleListingElement(item) {
   cardBody.appendChild(created);
   cardBody.appendChild(ending);
   cardBody.appendChild(currentBids);
-  cardBody.appendChild(showMoreBtn);
-  cardBody.appendChild(bidsContainer);
+
+  let bidsContainer;
+  if (isLoggedIn()) {
+    const showMoreBtn = document.createElement("button");
+    showMoreBtn.classList.add("btn", "btn-link", "primary-color-text", "mb-2", "me-auto");
+    showMoreBtn.textContent = "Show bidding history (↓)";
+    showMoreBtn.addEventListener("click", () => {
+      bidsContainer.classList.toggle("d-none");
+      showMoreBtn.textContent = bidsContainer.classList.contains("d-none")
+        ? "Show bidding history (↓)"
+        : "Show Less (↑)";
+    });
+
+    const bidsContainer = document.createElement("div");
+    bidsContainer.classList.add("card-text", "text-start", "mb-2", "d-none", "ms-4", "p-3");
+
+    const bidsList = document.createElement("ul");
+    bidsList.classList.add("list-unstyled");
+
+    item.data.bids.forEach((bid) => {
+      const bidElement = document.createElement("li");
+      const bidDate = new Date(bid.created);
+      const dateString = bidDate.toLocaleDateString();
+      const timeString = bidDate.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+
+      const bidderElement = document.createElement("strong");
+      bidderElement.textContent = `${bid.bidder.name}:`;
+
+      const bidInfo = document.createElement("span");
+      bidInfo.textContent = ` Amount: ${bid.amount}`;
+
+      const timeInfo = document.createElement("span");
+      timeInfo.textContent = ` ${dateString} at: ${timeString}`;
+      timeInfo.classList.add("ms-5");
+
+      bidElement.appendChild(bidderElement);
+      bidInfo.appendChild(timeInfo);
+      bidElement.appendChild(bidInfo);
+
+      bidElement.classList.add("mb-2", "pb-2", "border-bottom");
+
+      bidsList.appendChild(bidElement);
+    });
+
+    bidsContainer.appendChild(bidsList);
+
+    cardBody.appendChild(showMoreBtn);
+    cardBody.appendChild(bidsContainer);
+  }
+
   cardBody.appendChild(highestBid);
   cardBody.appendChild(bidForm);
   bidForm.appendChild(bidInput);
   bidForm.appendChild(placeBidBtn);
-  bidForm.appendChild(authorButtonsContainer);
+
+  if (isAuthor) {
+    bidForm.appendChild(authorButtonsContainer);
+  }
 
   listingWrapper.appendChild(card);
 

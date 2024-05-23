@@ -1,4 +1,4 @@
-import { fetchUserProfile } from "../../api/auth/fetchProfile.mjs";
+import { fetchUserProfile } from "../../api/index.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 
 export async function updateProfilePage() {
@@ -20,7 +20,7 @@ export async function updateProfilePage() {
     // Updates user bio
     const userBioElement = document.getElementById("userBio");
     if (userBioElement && profile.bio) {
-      userBioElement.textContent = `Bio: ${profile.bio}`;
+      userBioElement.textContent = `About you: ${profile.bio}`;
     } else {
       userBioElement.textContent = "";
     }

@@ -164,7 +164,7 @@
       </nav>
     </header>
     <main class="d-flex flex-column min-vh-100">
-      <div class="container mt-5 card col-10 col-lg-6 m-auto">
+      <div class="container card mt-5 col-10 col-lg-6 m-auto">
         <div class="card-body col-11 m-auto">
           <h1 class="mt-4 headline-text text-center">How to Sell</h1>
           <p>
@@ -199,7 +199,83 @@
           </p>
         </div>
       </div>
+      <div class="m-auto d-flex">
+        <a href="../../listings/createListing/"> <button class="btn btn-primary mx-4">Create a listing</button></a>
+      </div>
+      <div class="m-auto text-center">
+        <h2>Not a registered yet?</h2>
+        <p>press the link and register a user today</p>
+        <p>
+          <a class="text-secondary" id="registerButton" href="#">Register a user</a>
+        </p>
+      </div>
     </main>
+    <!-- Registration Modal -->
+    <div
+      class="modal fade"
+      id="registrationModal"
+      tabindex="-1"
+      aria-labelledby="registrationModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title headline-text" id="registrationModalLabel">Register at AuctionHouse</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="registrationForm">
+              <div class="mb-3">
+                <label for="email" class="login-text form-label">Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  required
+                  name="email"
+                  pattern="^[\w\-.]+@stud\.noroff\.no$"
+                  placeholder="Please enter a valid @stud.noroff.no email" />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="login-text form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  required
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password" />
+              </div>
+              <div class="mb-3">
+                <label for="name" class="login-text form-label">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  required
+                  name="name"
+                  placeholder="Enter your username" />
+              </div>
+              <div class="mb-3">
+                <label for="avatar" class="login-text form-label">Avatar</label>
+                <input type="url" class="form-control" id="avatar" name="avatar" placeholder="Enter a URL" />
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary mb-4">Register</button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="text-secondary text-center">
+              <p class="m-0">
+                Already have an account?
+                <a href="#!" class="login-text link text-decoration-none" id="logInLink">Login</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">

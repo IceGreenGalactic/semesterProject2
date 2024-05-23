@@ -27,7 +27,10 @@ export function router() {
       listeners.displayUserListings();
       listeners.displayUserWins();
       return;
-
+    case "/profile/editProfile/":
+      listeners.setEditProfileListener();
+      listeners.updateProfilePage();
+      return;
     default:
       if (path.startsWith("/listings/")) {
         listeners.displayListingsCategory();

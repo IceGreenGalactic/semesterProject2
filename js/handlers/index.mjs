@@ -3,6 +3,7 @@ export * from "./profile/register.mjs";
 export * from "./profile/updateProfileInfo.mjs";
 export * from "./profile/displayUserListings.mjs";
 export * from "./profile/displayUserWins.mjs";
+export * from "./profile/editProfile.mjs";
 
 export * from "./modals/loginModal.mjs";
 export * from "./modals/bidModal.mjs";

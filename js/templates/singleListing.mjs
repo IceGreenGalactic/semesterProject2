@@ -13,15 +13,16 @@ export function createSingleListingElement(item) {
   const isAuthor = currentUser && item.data.seller.email === currentUser.email;
 
   const listingWrapper = document.createElement("div");
-  listingWrapper.classList.add("card", "col-10", "m-auto", "mb-3");
+  listingWrapper.classList.add("card", "col-11", "col-sm-10", "p-2", "m-auto", "mb-3");
 
   const card = document.createElement("div");
-  card.classList.add("h-100", "m-auto", "pb-2", "row", "p-5", "align-items-center");
+  card.classList.add("row", "col-10", "m-auto", "justify-content-bottom", "align-top");
 
   const imgContainer = document.createElement("div");
-  imgContainer.classList.add("col-lg-10", "m-auto", "position-relative");
+  imgContainer.classList.add("col-lg-7", "col-12", "m-auto", "d-flex");
   const imgCarousel = createCarouselElement(item.data.media);
-  imgCarousel.classList.add("col-10", "m-auto");
+  imgCarousel.classList.add("w-100", "m-auto");
+
   // Countdown timer overlay
   const cardOverlay = document.createElement("div");
   cardOverlay.classList.add("card-img-overlay", "d-flex", "flex-column", "text-center");
@@ -39,7 +40,7 @@ export function createSingleListingElement(item) {
   }, 1000);
 
   const contentContainer = document.createElement("div");
-  contentContainer.classList.add("col-lg-8", "m-auto");
+  contentContainer.classList.add("col-lg-5", "col-12", "d-flex", "flex-column", "m-auto");
 
   const cardBody = document.createElement("div");
   cardBody.classList.add("card-body", "text-center", "m-auto");
@@ -47,10 +48,9 @@ export function createSingleListingElement(item) {
   const title = document.createElement("h2");
   title.classList.add("card-title", "text-center", "headline-text", "my-3", "text-center");
   title.textContent = item.data.title;
-  const seller = document.createElement("h4");
-  seller.classList.add("text-center");
+  const seller = document.createElement("p");
+  seller.classList.add("text-start");
   seller.textContent = `Seller: ${item.data.seller.name}`;
-  title.appendChild(seller);
 
   const descriptionHeadline = document.createElement("h5");
   descriptionHeadline.classList.add("text-center");
@@ -93,7 +93,17 @@ export function createSingleListingElement(item) {
   bidInput.classList.add("form-control", "mb-2");
 
   const placeBidBtn = document.createElement("button");
-  placeBidBtn.classList.add("btn", "btn-primary", "btn-sm", "col-10", "col-sm-6", "col-md-4", "my-4", "m-auto");
+  placeBidBtn.classList.add(
+    "btn",
+    "btn-primary",
+    "btn-sm",
+    "col-10",
+    "col-sm-6",
+    "col-md-4",
+    "col-lg-6",
+    "my-4",
+    "m-auto",
+  );
   placeBidBtn.textContent = "Place a bid";
   placeBidBtn.addEventListener("click", async (event) => {
     event.preventDefault();
@@ -101,7 +111,15 @@ export function createSingleListingElement(item) {
       const bidAmount = bidInput.value;
       const auctionId = item.data.id;
 
-      // Updates the bid UI callback
+      // Checks if bid amount is too small
+      const lastBid = item.data.bids[item.data.bids.length - 1];
+      const minBidAmount = lastBid ? lastBid.amount + 1 : 1;
+      if (parseInt(bidAmount) < minBidAmount) {
+        showMessage(`Your bid must be at least ${minBidAmount}. Please enter a higher amount.`, "warning");
+        return;
+      }
+
+      // Updates the bid UI
       const updateBidUI = (newBidAmount, bidCount) => {
         highestBid.textContent = `Highest Bid: ${newBidAmount} credits`;
         currentBids.textContent = `Current bids: ${bidCount}`;
@@ -143,14 +161,19 @@ export function createSingleListingElement(item) {
   overlayInner.appendChild(timerTitle);
   overlayInner.appendChild(timerSpan);
   imgContainer.appendChild(imgCarousel);
-  imgContainer.appendChild(cardOverlay);
-  card.appendChild(imgContainer);
+  imgCarousel.appendChild(cardOverlay);
   card.appendChild(title);
+
+  card.appendChild(imgContainer);
+
   card.appendChild(contentContainer);
   contentContainer.appendChild(cardBody);
+
   cardBody.appendChild(descriptionHeadline);
+
   cardBody.appendChild(description);
   cardBody.appendChild(infoHeadline);
+  cardBody.appendChild(seller);
   cardBody.appendChild(created);
   cardBody.appendChild(ending);
   cardBody.appendChild(currentBids);

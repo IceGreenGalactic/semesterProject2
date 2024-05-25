@@ -5,9 +5,8 @@ export function openEditModal(listingData, listingId) {
 
   if (editListingModal) {
     const modal = new bootstrap.Modal(editListingModal);
-    editModalInstance = modal; // Store the modal instance
+    editModalInstance = modal;
 
-    // Populate the modal with listing data
     document.getElementById("titleInput").value = listingData.data.title || "";
     document.getElementById("descriptionInput").value = listingData.data.description || "";
     document.getElementById("tagsInput").value = (listingData.data.tags || []).join(", ");
@@ -17,7 +16,6 @@ export function openEditModal(listingData, listingId) {
     const endsAtFormatted = endsAtDate.toISOString().slice(0, 16);
     document.getElementById("endsAtInput").value = endsAtFormatted || "";
 
-    // Set the listing ID as a data attribute to the update button
     const updateListingBtn = document.getElementById("updateListingBtn");
     updateListingBtn.dataset.listingId = listingId;
 

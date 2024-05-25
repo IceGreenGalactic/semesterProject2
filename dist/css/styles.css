@@ -12027,10 +12027,11 @@ ul > .border-bottom,
   color: #fff;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 355px) {
   .card-img-overlay {
     left: auto;
     position: relative;
+    width: 100%;
   }
 }
 

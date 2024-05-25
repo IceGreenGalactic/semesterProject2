@@ -93,17 +93,8 @@ export function createSingleListingElement(item) {
   bidInput.classList.add("form-control", "mb-2");
 
   const placeBidBtn = document.createElement("button");
-  placeBidBtn.classList.add(
-    "btn",
-    "btn-primary",
-    "btn-sm",
-    "col-10",
-    "col-sm-6",
-    "col-md-4",
-    "col-lg-6",
-    "my-4",
-    "m-auto",
-  );
+  placeBidBtn.classList.add("btn", "btn-primary", "btn-sm", "col-10", "col-sm-6", "my-4", "m-auto");
+
   placeBidBtn.textContent = "Place a bid";
   placeBidBtn.addEventListener("click", async (event) => {
     event.preventDefault();

@@ -9,7 +9,6 @@ export async function displayUserWins(userName) {
   try {
     showLoader();
     const profile = await fetchUserProfile(userName);
-
     const profileWinsElement = document.getElementById("profilePurchases");
     const profileButtonElement = document.getElementById("profileBtnWins");
 

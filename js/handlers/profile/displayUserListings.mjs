@@ -38,6 +38,7 @@ export async function displayUserListings(userName) {
         renderListings();
       } else {
         profileButtonElement.textContent = "No listings added yet, start now!";
+        profileButtonElement.classList.add("py-5");
         profileButtonElement.addEventListener("click", redirectToCreateListing);
       }
     } else {

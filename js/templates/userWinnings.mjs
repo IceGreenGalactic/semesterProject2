@@ -1,7 +1,6 @@
 import { countdownTimer } from "../utils/countdown.mjs";
-import * as handlers from "../handlers/index.mjs";
 
-function createUserListingElement(item) {
+function renderUserWinningsElement(item) {
   const listingWrapper = document.createElement("div");
   listingWrapper.classList.add("col-8", "col-md-4", "mb-3");
 
@@ -9,7 +8,7 @@ function createUserListingElement(item) {
   card.classList.add("card", "h-100");
 
   const img = document.createElement("img");
-  img.classList.add("card-img-top", "h-100", "m-auto", "mt-2");
+  img.classList.add("card-img-top", "h-auto", "m-auto", "mt-2");
   img.src = item.media[0].url;
   img.alt = item.title;
 
@@ -62,21 +61,6 @@ function createUserListingElement(item) {
   viewButton.addEventListener("click", () => {
     window.location.href = `../../listings/singleListing/?id=${item.id}`;
   });
-  const editButton = document.createElement("button");
-  editButton.classList.add("btn", "btn-link", "me-2");
-  editButton.innerHTML = '<i class="fas fa-edit"></i>';
-  editButton.value = item.id;
-  editButton.addEventListener("click", (event) => {
-    handlers.handleEditButtonClick(event, item.id, "profile");
-  });
-
-  const deleteButton = document.createElement("button");
-  deleteButton.classList.add("btn", "btn-link", "me-2");
-  deleteButton.innerHTML = '<i class="fas fa-trash-alt text-danger"></i>';
-  deleteButton.value = item.id;
-  deleteButton.addEventListener("click", (event) => {
-    handlers.handleDeleteButtonClick(event, item.id, "profile");
-  });
 
   cardOverlay.appendChild(overlayInner);
   overlayInner.appendChild(timerTitle);
@@ -87,8 +71,6 @@ function createUserListingElement(item) {
   list.appendChild(sellerItem);
 
   buttonDiv.appendChild(viewButton);
-  buttonDiv.appendChild(deleteButton);
-  buttonDiv.appendChild(editButton);
   cardBody.appendChild(title);
   cardBody.appendChild(list);
   cardBody.appendChild(buttonDiv);
@@ -102,9 +84,9 @@ function createUserListingElement(item) {
   return listingWrapper;
 }
 
-export function renderUserListingsTemplate(listingDataList, parent) {
+export function renderUserWinningsTemplate(listingDataList, parent) {
   listingDataList.forEach((listingData) => {
-    const listingElement = createUserListingElement(listingData);
+    const listingElement = renderUserWinningsElement(listingData);
     parent.appendChild(listingElement);
   });
 }

@@ -2,19 +2,27 @@ export function showMessage(message, type) {
   if (!showMessage.errorMessageDisplayed) {
     showMessage.errorMessageDisplayed = true;
 
-    let bgColor;
+    let borderColor, boxShadowColor, textShadowColor;
     switch (type) {
       case "success":
-        bgColor = "bg-success";
+        borderColor = "border-success";
+        boxShadowColor = "rgba(40, 167, 69, 0.5)";
+        textShadowColor = "rgba(40, 167, 69, 0.7)";
         break;
       case "error":
-        bgColor = "bg-danger";
+        borderColor = "border-danger";
+        boxShadowColor = "rgba(220, 53, 69, 0.5)";
+        textShadowColor = "rgba(220, 53, 69, 0.7)";
         break;
       case "warning":
-        bgColor = "bg-warning";
+        borderColor = "border-warning";
+        boxShadowColor = "rgba(255, 193, 7, 0.5)";
+        textShadowColor = "rgba(255, 193, 7, 0.7)";
         break;
       default:
-        bgColor = "bg-info";
+        borderColor = "border-info";
+        boxShadowColor = "rgba(23, 162, 184, 0.5)";
+        textShadowColor = "rgba(23, 162, 184, 0.7)";
     }
 
     const modalElement = document.createElement("div");
@@ -28,7 +36,9 @@ export function showMessage(message, type) {
     modalDialog.classList.add("modal-dialog", "modal-dialog-centered");
 
     const modalContent = document.createElement("div");
-    modalContent.classList.add("modal-content", bgColor, "text-white");
+    modalContent.classList.add("modal-content", "border", borderColor);
+    modalContent.style.borderWidth = "6px";
+    modalContent.style.boxShadow = `0 2px 8px ${boxShadowColor}`;
 
     const modalHeader = document.createElement("div");
     modalHeader.classList.add("modal-header");
@@ -36,6 +46,7 @@ export function showMessage(message, type) {
     modalTitle.classList.add("modal-title");
     modalTitle.id = "messageModalLabel";
     modalTitle.textContent = capitalizeFirstLetter(type);
+    modalTitle.style.textShadow = `1px 2px 2px ${textShadowColor}`;
 
     const closeButton = document.createElement("button");
     closeButton.classList.add("btn-close");
@@ -48,6 +59,7 @@ export function showMessage(message, type) {
     const modalBody = document.createElement("div");
     modalBody.classList.add("modal-body", "py-3");
     modalBody.textContent = message instanceof Error ? message.message : message;
+    modalBody.style.textShadow = `1px 1px 3px ${textShadowColor}`;
 
     const modalFooter = document.createElement("div");
     modalFooter.classList.add("modal-footer");
@@ -66,11 +78,9 @@ export function showMessage(message, type) {
 
     document.body.appendChild(modalElement);
 
-    // Activate modal
     const modal = new bootstrap.Modal(modalElement);
     modal.show();
 
-    // Close modal after timeout
     setTimeout(() => {
       modal.hide();
       modalElement.remove();

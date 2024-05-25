@@ -37,6 +37,7 @@ export async function loginUser(email, password) {
     save("profile", profile);
 
     if (accessToken) {
+      window.location.reload();
       updateProfileNav();
       setTimeout(() => {
         closeLoginModal();

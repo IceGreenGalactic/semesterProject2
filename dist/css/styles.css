@@ -11906,6 +11906,10 @@ span {
   cursor: pointer;
 }
 
+footer {
+  text-align: center;
+}
+
 #loaderContainer {
   position: fixed;
   top: 0;
@@ -12031,7 +12035,6 @@ ul > .border-bottom,
   .card-img-overlay {
     left: auto;
     position: relative;
-    width: 100%;
   }
 }
 

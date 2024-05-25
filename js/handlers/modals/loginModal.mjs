@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// for registration buttons
+// for login buttons
 document.addEventListener("DOMContentLoaded", function () {
   const loginButton = document.querySelector("#loginButton");
   if (loginButton) {

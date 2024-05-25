@@ -66,16 +66,19 @@
                   <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <!-- Nested Dropdown Submenu -->
 
-                    <a class="dropdown-item py-2" href="../../listings/createListing/"
-                      ><i class="fas fa-plus-circle"></i> Create Listing</a
-                    >
-                    <a class="dropdown-item py-2" href="../../listings/allListings/"
-                      ><i class="fas fa-list"></i> Browse Listings</a
-                    >
+                    <a class="dropdown-item py-2" href="../../listings/createListing/">
+                      <i class="fas fa-plus-circle"></i>
+                      Create Listing
+                    </a>
+                    <a class="dropdown-item py-2" href="../../listings/allListings/">
+                      <i class="fas fa-list"></i>
+                      Browse Listings
+                    </a>
 
                     <a class="dropdown-item py-2" href="../../listings/">
-                      <i class="fas fa-list-alt"></i> Browse by categories</a
-                    >
+                      <i class="fas fa-list-alt"></i>
+                      Browse by categories
+                    </a>
 
                     <a
                       class="dropdown-item dropdown-toggle py-2"
@@ -85,7 +88,8 @@
                       aria-expanded="false"
                       aria-controls="submenu"
                       onclick="event.stopPropagation();">
-                      <i class="fas fa-handshake"></i> Buy and Sell
+                      <i class="fas fa-handshake"></i>
+                      Buy and Sell
                     </a>
                     <div class="collapse ms-5" id="submenu">
                       <a class="dropdown-item py-2" href="../sell/">How to sell</a>
@@ -93,10 +97,14 @@
                       <a class="dropdown-item py-2" href="../pay/">How to pay</a>
                       <a class="dropdown-item py-2" href="../ship/">How to ship</a>
                     </div>
-                    <a class="dropdown-item py-2" href="../"> <i class="fas fa-info-circle"></i>About</a>
-                    <a class="dropdown-item py-2 logout-link" href="../../"
-                      ><i class="fa-solid fa-user-xmark text-start"></i> Logout</a
-                    >
+                    <a class="dropdown-item py-2" href="../">
+                      <i class="fas fa-info-circle"></i>
+                      About
+                    </a>
+                    <a class="dropdown-item py-2 logout-link" href="../../">
+                      <i class="fa-solid fa-user-xmark text-start"></i>
+                      Logout
+                    </a>
                   </div>
                 </li>
                 <!-- Items in navbar for smaller devices -->
@@ -114,19 +122,22 @@
                 </li>
 
                 <li class="nav-item text-start border-bottom d-lg-none py-2">
-                  <a class="nav-link m-auto" href="../../listings/createListing/"
-                    ><i class="fas fa-plus-circle"></i> Create Listing</a
-                  >
+                  <a class="nav-link m-auto" href="../../listings/createListing/">
+                    <i class="fas fa-plus-circle"></i>
+                    Create Listing
+                  </a>
                 </li>
                 <li class="nav-item text-start border-bottom d-lg-none py-2">
-                  <a class="nav-link m-auto" href="../../listings/allListings/"
-                    ><i class="fas fa-list"></i> Browse Listings</a
-                  >
+                  <a class="nav-link m-auto" href="../../listings/allListings/">
+                    <i class="fas fa-list"></i>
+                    Browse Listings
+                  </a>
                 </li>
                 <li class="nav-item text-start border-bottom d-lg-none py-2">
                   <a class="nav-link m-auto" href="../../listings/">
-                    <i class="fas fa-list-alt"></i> Browse by categories</a
-                  >
+                    <i class="fas fa-list-alt"></i>
+                    Browse by categories
+                  </a>
                 </li>
                 <li class="nav-item dropdown border-bottom py-2 d-lg-none">
                   <a
@@ -136,7 +147,8 @@
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    <i class="fas fa-handshake"></i> Buy and Sell
+                    <i class="fas fa-handshake"></i>
+                    Buy and Sell
                   </a>
                   <div class="dropdown-menu border-0 bg-light" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item py-2" href="../sell/">How to sell</a>
@@ -203,7 +215,7 @@
               Ready to turn your items into cash? Dive into our comprehensive guide and learn how to master the art of
               selling on AuctionHouse.
             </p>
-            <p class="m-0"><strong> Explore:</strong></p>
+            <p class="m-0"><strong>Explore:</strong></p>
             <ul class="list-unstyled">
               <li>Creating compelling listings</li>
               <li>Optimizing your sales strategy</li>
@@ -226,7 +238,7 @@
           <div class="col-11 mx-auto col-sm-6 col-md-7 text-center text-sm-start card-text py-2">
             <h2 class="headline-text">Master the Art of Shipping</h2>
             <p>Ensure a seamless shipping experience for your buyers and sellers with our comprehensive guide.</p>
-            <p class="m-0"><strong> Explore:</strong></p>
+            <p class="m-0"><strong>Explore:</strong></p>
             <ul class="list-unstyled">
               <li>Shipping best practices for buyers</li>
               <li>Essential tips for sellers</li>
@@ -239,12 +251,83 @@
       </div>
     </main>
 
+    <!-- Registration Modal -->
+    <div
+      class="modal fade"
+      id="registrationModal"
+      tabindex="-1"
+      aria-labelledby="registrationModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title headline-text" id="registrationModalLabel">Register at AuctionHouse</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="registrationForm">
+              <div class="mb-3">
+                <label for="email" class="login-text form-label">Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  required
+                  name="email"
+                  pattern="^[\w\-.]+@stud\.noroff\.no$"
+                  placeholder="Please enter a valid @stud.noroff.no email" />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="login-text form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  required
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password" />
+              </div>
+              <div class="mb-3">
+                <label for="name" class="login-text form-label">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  required
+                  name="name"
+                  placeholder="Enter your username" />
+              </div>
+              <div class="mb-3">
+                <label for="avatar" class="login-text form-label">Avatar</label>
+                <input type="url" class="form-control" id="avatar" name="avatar" placeholder="Enter a URL" />
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary mb-4">Register</button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="text-secondary text-center">
+              <p class="m-0">
+                Already have an account?
+                <a href="#!" class="login-text link text-decoration-none" id="logInLink">Login</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h2 class="modal-title headline-text" id="loginModalLabel">Login to<br />AuctionHouse</h2>
+            <h2 class="modal-title headline-text" id="loginModalLabel">
+              Login to
+              <br />
+              AuctionHouse
+            </h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">

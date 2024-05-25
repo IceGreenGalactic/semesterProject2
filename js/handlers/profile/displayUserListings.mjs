@@ -17,7 +17,6 @@ export async function displayUserListings(userName) {
       if (profile.listings && profile.listings.length > 0) {
         let showAllListings = false;
         renderUserListingsTemplate(profile.listings.slice(0, ITEMS_PER_PAGE), profileListingsElement);
-
         const toggleButtonState = () => {
           showAllListings = !showAllListings;
           profileButtonElement.textContent = showAllListings ? "Show all listings" : "Show less listings";
@@ -39,6 +38,7 @@ export async function displayUserListings(userName) {
         renderListings();
       } else {
         profileButtonElement.textContent = "No listings added yet, start now!";
+        profileButtonElement.classList.add("py-5");
         profileButtonElement.addEventListener("click", redirectToCreateListing);
       }
     } else {

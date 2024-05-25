@@ -11859,6 +11859,10 @@ span {
   font-family: "Open+Sans";
 }
 
+.btn-primary {
+  font-family: "Cinzel";
+}
+
 .logo {
   margin-left: 50%;
   translate: -50%;
@@ -11904,6 +11908,10 @@ span {
 
 .category-card {
   cursor: pointer;
+}
+
+footer {
+  text-align: center;
 }
 
 #loaderContainer {
@@ -12027,7 +12035,7 @@ ul > .border-bottom,
   color: #fff;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 355px) {
   .card-img-overlay {
     left: auto;
     position: relative;

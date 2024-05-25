@@ -75,3 +75,28 @@ export async function getListingsByTags(tags, page = 1, limit = 100) {
     hideLoader();
   }
 }
+
+export async function getSearchListings(searchQuery, page = 1, limit = 10, sort = "created", sortOrder = "desc") {
+  if (!searchQuery) {
+    throw new Error("Search query is required");
+  }
+
+  const queryParams = `_seller=true&_bids=true&page=${page}&limit=${limit}&sort=${sort}&sortOrder=${sortOrder}&q=${searchQuery}`;
+  const getSearchUrl = `${listingsEndpoint}/search?${queryParams}`;
+
+  try {
+    showLoader();
+    const response = await fetch(getSearchUrl);
+    if (!response.ok) {
+      const error = new Error(`Failed to fetch listings: ${response.status}`);
+      showMessage(error.message, "error");
+      throw error;
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching listings:", error);
+    throw error;
+  } finally {
+    hideLoader();
+  }
+}

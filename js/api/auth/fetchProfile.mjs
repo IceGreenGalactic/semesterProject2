@@ -69,6 +69,23 @@ export async function fetchUserProfile(profileData = null) {
     const listingsData = await listingsResponse.json();
     userData.data.listings = listingsData.data;
 
+    const userWinsUrl = `${profilesEndpoint}/${profileData}/wins`;
+    const winsResponse = await authFetch(userWinsUrl, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    if (!winsResponse.ok) {
+      const error = new Error(`Failed to fetch user wins: ${winsResponse.status}`);
+      showMessage(error.message, "error");
+      throw error;
+    }
+
+    const winsData = await winsResponse.json();
+    userData.data.wins = winsData.data;
+
     return userData.data;
   } catch (error) {
     console.error("Error fetching user profile:", error);

@@ -10,6 +10,10 @@ span {
   font-family: "Open+Sans";
 }
 
+.btn-primary {
+  font-family: "Cinzel";
+}
+
 .logo {
   margin-left: 50%;
   translate: -50%;
@@ -55,6 +59,10 @@ span {
 
 .category-card {
   cursor: pointer;
+}
+
+footer {
+  text-align: center;
 }
 
 #loaderContainer {

@@ -1,5 +1,5 @@
 import { fetchUserProfile } from "../../api/index.mjs";
-import { renderUserWinningsTemplate } from "../../templates/userWinnings.mjs";
+import { renderUserListingsTemplate } from "../../templates/userListings.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 import { showLoader, hideLoader } from "../../utils/loader.mjs";
 
@@ -29,9 +29,9 @@ export async function displayUserWins(userName) {
 
         if (profile.wins && profile.wins.length > 0) {
           if (showAllWins) {
-            renderUserWinningsTemplate(profile.wins, profileWinsElement);
+            renderUserListingsTemplate(profile.wins, profileWinsElement);
           } else {
-            renderUserWinningsTemplate(profile.wins.slice(0, ITEMS_PER_PAGE), profileWinsElement);
+            renderUserListingsTemplate(profile.wins.slice(0, ITEMS_PER_PAGE), profileWinsElement);
           }
           toggleButtonState();
         } else {

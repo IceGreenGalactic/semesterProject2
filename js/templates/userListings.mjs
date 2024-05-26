@@ -1,5 +1,4 @@
 import { countdownTimer } from "../utils/countdown.mjs";
-import * as handlers from "../handlers/index.mjs";
 
 function createUserListingElement(item) {
   const listingWrapper = document.createElement("div");
@@ -62,21 +61,6 @@ function createUserListingElement(item) {
   viewButton.addEventListener("click", () => {
     window.location.href = `../../listings/singleListing/?id=${item.id}`;
   });
-  const editButton = document.createElement("button");
-  editButton.classList.add("btn", "btn-link", "me-2");
-  editButton.innerHTML = '<i class="fas fa-edit"></i>';
-  editButton.value = item.id;
-  editButton.addEventListener("click", (event) => {
-    handlers.handleEditButtonClick(event, item.id, "profile");
-  });
-
-  const deleteButton = document.createElement("button");
-  deleteButton.classList.add("btn", "btn-link", "me-2");
-  deleteButton.innerHTML = '<i class="fas fa-trash-alt text-danger"></i>';
-  deleteButton.value = item.id;
-  deleteButton.addEventListener("click", (event) => {
-    handlers.handleDeleteButtonClick(event, item.id, "profile");
-  });
 
   cardOverlay.appendChild(overlayInner);
   overlayInner.appendChild(timerTitle);
@@ -87,8 +71,6 @@ function createUserListingElement(item) {
   list.appendChild(sellerItem);
 
   buttonDiv.appendChild(viewButton);
-  buttonDiv.appendChild(deleteButton);
-  buttonDiv.appendChild(editButton);
   cardBody.appendChild(title);
   cardBody.appendChild(list);
   cardBody.appendChild(buttonDiv);

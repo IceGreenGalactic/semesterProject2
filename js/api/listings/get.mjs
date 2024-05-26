@@ -13,7 +13,7 @@ import { showMessage } from "../../utils/messages.mjs";
  */
 
 export async function getAllListings(page = 1, limit = 100, sort = "created", sortOrder = "desc") {
-  const queryParams = `_seller=true&_bids=true&page=${page}&limit=${limit}&sort=${sort}&sortOrder=${sortOrder}`;
+  const queryParams = `_seller=true&_bids=true&_active=true&page=${page}&limit=${limit}&sort=${sort}&sortOrder=${sortOrder}`;
   const getAllUrl = `${listingsEndpoint}?${queryParams}`;
 
   try {

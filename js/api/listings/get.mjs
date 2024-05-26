@@ -13,7 +13,7 @@ import { showMessage } from "../../utils/messages.mjs";
  */
 
 export async function getAllListings(page = 1, limit = 100, sort = "created", sortOrder = "desc") {
-  const queryParams = `_seller=true&_bids=true&page=${page}&limit=${limit}&sort=${sort}&sortOrder=${sortOrder}`;
+  const queryParams = `_seller=true&_bids=true&_active=true&page=${page}&limit=${limit}&sort=${sort}&sortOrder=${sortOrder}`;
   const getAllUrl = `${listingsEndpoint}?${queryParams}`;
 
   try {
@@ -77,10 +77,9 @@ export async function getListingById(id) {
  * @returns {Promise<Object[]>} A promise that resolves to an array of fetched listings data.
  * @throws {Error} If the fetching process fails.
  */
-export async function getListingsByTags(tags, page = 1, limit = 100) {
-  const queryParams = `_tag=${tags.join(",")}&_active=true&page=${page}&limit=${limit}&_seller=true&_bids=true`;
+export async function getListingsByTags(tags, page = 1, limit = 100, sort = "endsAt", sortOrder = "desc") {
+  const queryParams = `_tag=${tags.join(",")}&page=${page}&limit=${limit}&_seller=true&_bids=true&sort=${sort}&sortOrder=${sortOrder}`;
   const url = `${listingsEndpoint}?${queryParams}`;
-
   try {
     showLoader();
     const response = await fetch(url);
@@ -91,6 +90,7 @@ export async function getListingsByTags(tags, page = 1, limit = 100) {
     }
 
     const data = await response.json();
+
     return data.data;
   } catch (error) {
     console.error("Error fetching listings:", error);

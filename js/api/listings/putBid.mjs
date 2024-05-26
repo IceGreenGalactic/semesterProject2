@@ -30,7 +30,7 @@ export async function placeBid(auctionId, bidAmount, updateBidUI) {
       if (updateBidUI) {
         const highestBid = amount;
         const bidCount = responseData.data._count.bids || 0;
-        updateBidUI(highestBid, bidCount + 1);
+        updateBidUI(highestBid, bidCount);
       }
 
       return responseData;

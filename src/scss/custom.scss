@@ -1,7 +1,7 @@
 $primary-color: #8b4513;
 $decor-color: #ffd700;
 $background-color: #f8f9fa;
-$test-color: #372727;
+$dark-color: #372727;
 $secondary-color: #f2d7b6;
 $box-shaddow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 
@@ -33,7 +33,7 @@ span {
   font-size: 15px;
 
   h2 {
-    color: $test-color;
+    color: $dark-color;
     font-size: 25px;
   }
 }
@@ -41,6 +41,9 @@ span {
 .headline-text {
   color: $primary-color;
   font-family: "Cinzel";
+}
+
+#userName {
 }
 
 .login-text,

@@ -5,6 +5,13 @@ import { showMessage } from "../../utils/messages.mjs";
 import { showLoader, hideLoader } from "../../utils/loader.mjs";
 import { updateProfilePage } from "./updateProfileInfo.mjs";
 
+/**
+ * Sets up the event listener for the profile edit form.
+ * Fetches the user's profile data, pre-fills the form, and handles the form submission.
+ * @async
+ * @function setEditProfileListener
+ * @returns {Promise<void>} - A promise that resolves when the listener is set up.
+ */
 export async function setEditProfileListener() {
   const form = document.querySelector("#editProfile");
 

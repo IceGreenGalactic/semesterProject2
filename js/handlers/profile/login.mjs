@@ -6,7 +6,6 @@ export function setLoginFormListener() {
   if (form) {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      console.log("Login form submitted");
 
       const formData = new FormData(form);
       const email = formData.get("email").toString();
@@ -14,10 +13,8 @@ export function setLoginFormListener() {
 
       try {
         await loginUser(email, password);
-        console.log("Login successful");
       } catch (error) {
         console.error("Error logging in:", error);
-        console.log("Error login:" + error.message, "error");
       }
     });
   }

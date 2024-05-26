@@ -3,7 +3,18 @@ import { renderAllListingTemplates } from "../../templates/allListings.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 import { showLoader, hideLoader } from "../../utils/loader.mjs";
 
+/**
+ * Delays execution by a specified number of milliseconds.
+ * @param {number} ms - The number of milliseconds to delay execution.
+ * @returns {Promise<void>} - A promise that resolves after the specified delay.
+ */
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ * Fetches and displays listings based on the selected category card.
+ * @returns {Promise<void>} - A promise that resolves once the listings are displayed.
+ */
+
 export async function displayListingsCategory() {
   document.querySelectorAll(".category-card").forEach((card) => {
     card.addEventListener("click", async () => {

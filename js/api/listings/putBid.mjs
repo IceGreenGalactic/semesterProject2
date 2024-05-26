@@ -2,6 +2,15 @@ import { listingsEndpoint } from "../api_constants.mjs";
 import { authFetch } from "../authFetch.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 
+/**
+ * Places a bid on an auction.
+ * @param {string} auctionId - The ID of the auction to place a bid on.
+ * @param {number|string} bidAmount - The amount of the bid.
+ * @param {Function} [updateBidUI] - A function to update the UI with the latest bid information.
+ * @returns {Promise<Object>} A promise that resolves to the response data if the bid is successfully placed.
+ * @throws {Error} If there is an error placing the bid.
+ */
+
 export async function placeBid(auctionId, bidAmount, updateBidUI) {
   const url = `${listingsEndpoint}/${auctionId}/bids`;
   const amount = parseInt(bidAmount, 10);
@@ -24,7 +33,6 @@ export async function placeBid(auctionId, bidAmount, updateBidUI) {
 
     if (response.ok) {
       const responseData = await response.json();
-      console.log("Bid placed successfully:", responseData);
       showMessage("Bid placed successfully!", "success");
 
       if (updateBidUI) {

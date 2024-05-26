@@ -3,6 +3,22 @@ import { storeScrollPosition } from "../utils/scroll/scrollPosition.mjs";
 import { load } from "../storage/token.mjs";
 import * as handlers from "../handlers/index.mjs";
 
+/**
+ * Creates a DOM element representing a listing item.
+ *
+ * @param {Object} item - The listing item data.
+ * @param {string} item.id - The ID of the listing.
+ * @param {string} item.title - The title of the listing.
+ * @param {Array} item.media - An array of media objects for the listing.
+ * @param {Object} item.seller - The seller of the listing.
+ * @param {string} item.seller.email - The email of the seller.
+ * @param {string} item.seller.name - The name of the seller.
+ * @param {string} item.created - The creation date of the listing.
+ * @param {Array} item.bids - An array of bid objects for the listing.
+ * @param {Object} item._count - The count of bids for the listing.
+ *
+ * @returns {HTMLElement} The DOM element representing the listing item.
+ */
 export function createListingElement(item) {
   const userProfile = load("profile");
   const currentUser = userProfile;
@@ -112,6 +128,12 @@ export function createListingElement(item) {
   return listingWrapper;
 }
 
+/**
+ * Renders all listing templates and appends them to the parent element.
+ *
+ * @param {Array} listingDataList - An array of listing data objects.
+ * @param {HTMLElement} parent - The parent element to which the listings will be appended.
+ */
 export function renderAllListingTemplates(listingDataList, parent) {
   listingDataList.forEach((listingData) => {
     const listingElement = createListingElement(listingData);
@@ -119,6 +141,12 @@ export function renderAllListingTemplates(listingDataList, parent) {
   });
 }
 
+/**
+ * Renders the first three listings and appends them to the parent element.
+ *
+ * @param {Array} listingDataList - An array of listing data objects.
+ * @param {HTMLElement} parent - The parent element to which the listings will be appended.
+ */
 export function renderSomeListings(listingDataList, parent) {
   parent.innerHTML = "";
 

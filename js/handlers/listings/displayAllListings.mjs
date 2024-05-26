@@ -3,6 +3,14 @@ import { renderAllListingTemplates } from "../../templates/allListings.mjs";
 import { scrollToTop, createScrollToTopButton } from "../../utils/index.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 
+/**
+ * Displays all listings based on the specified sorting parameters and search query.
+ * @param {string} [sort="created"] - The field to sort by (e.g., "created", "title").
+ * @param {string} [sortOrder="desc"] - The sorting order ("asc" for ascending, "desc" for descending).
+ * @param {number} [page=1] - The page number to display.
+ * @param {string} [searchQuery=""] - The search query to filter listings.
+ */
+
 let currentPage = 1;
 let currentSort = "created";
 let currentSortOrder = "desc";
@@ -45,6 +53,9 @@ export async function displayAllListings(sort = "created", sortOrder = "desc", p
   }
 }
 
+/**
+ * Handles the click event of the "Show More" button to load more listings.
+ */
 const showMoreBtn = document.getElementById("showMoreBtn");
 if (showMoreBtn) {
   showMoreBtn.addEventListener("click", async () => {
@@ -53,6 +64,10 @@ if (showMoreBtn) {
   });
 }
 
+/**
+ * Handles the change event of the sort options dropdown to update the displayed listings based on the selected sorting criteria.
+ * Saves the selected sorting option to sessionStorage.
+ */
 export const sortOptions = document.getElementById("sortOptions");
 if (sortOptions) {
   sortOptions.addEventListener("change", async (event) => {
@@ -67,6 +82,11 @@ if (sortOptions) {
     await displayAllListings(currentSort, currentSortOrder, currentPage, currentSearchQuery);
   });
 }
+
+/**
+ * Handles the form submission event for searching listings.
+ * Updates the displayed listings based on the entered search query.
+ */
 
 export async function handleSearch(event) {
   if (event) {

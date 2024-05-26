@@ -3,6 +3,13 @@ import { showLoader, hideLoader } from "../../utils/loader.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 import { authFetch } from "../authFetch.mjs";
 
+/**
+ * Creates a new listing with the provided form data.
+ * @param {Object} formData - The form data for the new listing.
+ * @returns {Promise<Object>} A promise that resolves to the created listing data.
+ * @throws {Error} If the creation of the listing fails.
+ */
+
 export async function createListing(formData) {
   try {
     showLoader();

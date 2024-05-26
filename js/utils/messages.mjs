@@ -1,3 +1,10 @@
+/**
+ * Displays a message modal with the specified content and type.
+ * @param {string | Error} message - The message to display. Can be a string or an Error object.
+ * @param {string} type - The type of message. Can be "success", "error", "warning", or any other string (default).
+ * @returns {void}
+ */
+
 export function showMessage(message, type) {
   if (!showMessage.errorMessageDisplayed) {
     showMessage.errorMessageDisplayed = true;

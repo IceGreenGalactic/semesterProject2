@@ -7,6 +7,29 @@ import { showMessage } from "../utils/messages.mjs";
 import { load } from "../storage/token.mjs";
 import * as handlers from "../handlers/index.mjs";
 
+/**
+ * Creates a single listing element with all necessary information.
+ *
+ * @param {Object} item - The listing data.
+ * @param {Object} item.data - The main data object for the listing.
+ * @param {Object[]} item.data.media - An array of media objects for the listing.
+ * @param {Object} item.data.seller - The seller of the listing.
+ * @param {string} item.data.seller.email - The email of the seller.
+ * @param {string} item.data.seller.name - The name of the seller.
+ * @param {string} item.data.title - The title of the listing.
+ * @param {string} item.data.description - The description of the listing.
+ * @param {string} item.data.created - The creation date of the listing.
+ * @param {string} item.data.endsAt - The end date of the listing.
+ * @param {Object[]} item.data.bids - An array of bids on the listing.
+ * @param {Object} item.data.bids[].created - The creation date of the bid.
+ * @param {Object} item.data.bids[].bidder - The bidder object.
+ * @param {string} item.data.bids[].bidder.name - The name of the bidder.
+ * @param {number} item.data.bids[].amount - The bid amount.
+ * @param {Object} item.data._count - The count object.
+ * @param {number} item.data._count.bids - The number of bids.
+ *
+ * @returns {HTMLElement} The DOM element representing the single listing.
+ */
 export function createSingleListingElement(item) {
   const userProfile = load("profile");
   const currentUser = userProfile;

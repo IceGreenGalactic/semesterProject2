@@ -5,6 +5,14 @@ import { load } from "../../storage/token.mjs";
 import { authFetch } from "../authFetch.mjs";
 import { apiKey } from "../authFetch.mjs";
 
+/**
+ * Fetches the user profile data from the server.
+ *
+ * @param {string|null} profileData - The profile name to fetch data for. If null, the profile name is loaded from storage.
+ * @returns {Promise<Object>} The user profile data, including listings and wins.
+ * @throws {Error} Throws an error if the access token or profile data is not found, or if the fetch operation fails.
+ */
+
 export async function fetchUserProfile(profileData = null) {
   const accessToken = load("accessToken");
 
@@ -95,7 +103,15 @@ export async function fetchUserProfile(profileData = null) {
   }
 }
 
-// updates profile
+/**
+ * Updates the user's profile data on the server.
+ *
+ * @param {Object} profileData - The profile data to update.
+ * @param {string} profileData.name - The name of the profile to update.
+ * @returns {Promise<Object>} The updated profile data.
+ * @throws {Error} Throws an error if the profile data does not include a name.
+ */
+
 export async function updateProfile(profileData) {
   if (!profileData.name) {
     throw new Error("Update requires a name");

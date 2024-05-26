@@ -4,6 +4,11 @@ import { createListing } from "../../api/listings/create.mjs";
 import { showLoader, hideLoader } from "../../utils/index.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 
+/**
+ * Handles the submission of the listing creation form.
+ * @param {Event} event - The form submission event.
+ */
+
 export async function handleFormSubmission(event) {
   event.preventDefault();
 

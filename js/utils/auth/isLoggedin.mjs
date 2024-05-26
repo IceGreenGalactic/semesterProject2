@@ -1,11 +1,18 @@
 import { load } from "../../storage/token.mjs";
 import { openLoginModal } from "../../handlers/index.mjs";
 
+/**
+ * Checks if a user is logged in by verifying the presence of an access token.
+ * @returns {boolean} A boolean indicating whether the user is logged in.
+ */
 export function isLoggedIn() {
   const accessToken = load("accessToken");
   return accessToken !== null;
 }
 
+/**
+ * Updates the profile navigation links based on the user's login status.
+ */
 export function updateProfileNav() {
   const profileNavLink = document.getElementById("profileNavLink");
   const profileHamburgerLink = document.getElementById("profileHamburgerLink");

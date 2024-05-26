@@ -1,6 +1,15 @@
 import { fetchUserProfile } from "../../api/index.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 
+/**
+ * Updates the user profile page with the fetched user profile data.
+ * This function updates the user name, email, bio, avatar, credits,
+ * listings count, and wins count on the profile page.
+ *
+ * @async
+ * @function updateProfilePage
+ * @returns {Promise<void>} A promise that resolves when the profile page is updated.
+ */
 export async function updateProfilePage() {
   try {
     const profile = await fetchUserProfile();

@@ -1,3 +1,13 @@
+/**
+ * Creates a carousel element to display a series of images.
+ *
+ * @param {Array} media - An array of media objects to be displayed in the carousel.
+ * @param {string} media[].url - The URL of the image.
+ * @param {string} [media[].alt] - The alternative text for the image.
+ *
+ * @returns {HTMLElement} The DOM element representing the carousel.
+ */
+
 export function createCarouselElement(media) {
   const imgCarousel = document.createElement("div");
   imgCarousel.classList.add("carousel", "slide");

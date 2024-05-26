@@ -1,6 +1,10 @@
 import { showLoader, hideLoader } from "../../utils/loader.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 
+/**
+ * Handles the logout process by clearing local and session storage and redirecting to the home page.
+ */
+
 export function handleLogout() {
   try {
     showLoader();

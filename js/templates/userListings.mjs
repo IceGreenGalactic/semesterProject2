@@ -1,5 +1,19 @@
 import { countdownTimer } from "../utils/countdown.mjs";
 
+/**
+ * Creates a user listing element based on the provided item data.
+ * @param {Object} item - The item data representing the user listing.
+ * @param {string} item.title - The title of the listing.
+ * @param {Array} item.media - The media associated with the listing.
+ * @param {string} item.media[].url - The URL of the listing image.
+ * @param {string} item.title - The alt text of the listing image.
+ * @param {string} item.created - The creation date of the listing.
+ * @param {number} item._count.bids - The number of bids on the listing.
+ * @param {Array} item.bids - The array of bids on the listing.
+ * @param {string} item.id - The ID of the listing.
+ * @returns {HTMLElement} The created user listing element.
+ */
+
 function createUserListingElement(item) {
   const listingWrapper = document.createElement("div");
   listingWrapper.classList.add("col-8", "col-md-4", "mb-3");
@@ -84,6 +98,11 @@ function createUserListingElement(item) {
   return listingWrapper;
 }
 
+/**
+ * Renders user listing templates based on the provided listing data list and appends them to the specified parent element.
+ * @param {Array} listingDataList - The array of listing data representing user listings.
+ * @param {HTMLElement} parent - The parent element to which the listing templates will be appended.
+ */
 export function renderUserListingsTemplate(listingDataList, parent) {
   listingDataList.forEach((listingData) => {
     const listingElement = createUserListingElement(listingData);

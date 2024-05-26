@@ -7,6 +7,15 @@ import { displayAllListings } from "./displayAllListings.mjs";
 import { openEditModal, closeEditModal } from "../modals/editModal.mjs";
 import { displayUserListings } from "../index.mjs";
 
+/**
+ * Handles the click event for editing a listing.
+ * Fetches the listing data for editing, displays the edit modal, and attaches an event listener
+ * for updating the listing when the update button is clicked.
+ * @param {Event} event - The click event object.
+ * @param {string} listingId - The ID of the listing to edit.
+ * @param {string} pageType - The type of page where the edit button was clicked (e.g., "single", "profile", etc.).
+ * @returns {Promise<void>} A promise that resolves once the listing is edited.
+ */
 export async function handleEditButtonClick(event, listingId, pageType) {
   event.preventDefault();
 
@@ -33,6 +42,12 @@ export async function handleEditButtonClick(event, listingId, pageType) {
   }
 }
 
+/**
+ * Attaches an event listener to the update listing button in the edit modal.
+ * Handles the click event for updating the listing.
+ * @param {string} listingId - The ID of the listing to update.
+ * @param {string} pageType - The type of page where the edit button was clicked (e.g., "single", "profile", etc.).
+ */
 export function attachUpdateListingListener(listingId, pageType) {
   const updateListingBtn = document.getElementById("updateListingBtn");
   updateListingBtn.addEventListener("click", async (event) => {

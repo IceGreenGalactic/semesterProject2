@@ -4,6 +4,13 @@ import { closeRegistrationModal } from "../../handlers/modals/registrationModal.
 import { showLoader, hideLoader } from "../../utils/loader.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 
+/**
+ * Registers a new user by sending a POST request to the registration endpoint.
+ * @param {Object} profile - The user profile data to be registered.
+ * @returns {Promise<Object>} A promise that resolves to the response data if registration is successful.
+ * @throws {Error} If registration fails or encounters an error.
+ */
+
 export async function registerUser(profile) {
   try {
     showLoader();

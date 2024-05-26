@@ -1,6 +1,13 @@
 import { authFetch } from "../authFetch.mjs";
 import { profilesEndpoint } from "../api_constants.mjs";
 
+/**
+ * Updates the user profile with the provided profile data.
+ * @param {Object} profileData - The profile data to be updated.
+ * @returns {Promise<Object>} A promise that resolves to the updated profile data.
+ * @throws {Error} If the update fails or profile data is missing.
+ */
+
 const method = "PUT";
 
 export async function updateProfile(profileData) {

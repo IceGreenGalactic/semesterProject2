@@ -1,3 +1,10 @@
+/**
+ * Calculates the remaining time until the end of an auction.
+ * @param {Object} item - The auction item object containing the end time.
+ * @returns {string} A string representing the remaining time in the format "Xd Xh Xm Xs".
+ * If the auction has ended, returns "Ended".
+ */
+
 export function countdownTimer(item) {
   const endTime = new Date(item.endsAt).getTime();
   const now = new Date().getTime();

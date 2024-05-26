@@ -6,6 +6,15 @@ import { showLoader, hideLoader } from "../../utils/loader.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 import { updateProfileNav } from "../../utils/index.mjs";
 
+/**
+ * Logs in a user with the provided email and password.
+ *
+ * @param {string} email - The email of the user.
+ * @param {string} password - The password of the user.
+ * @returns {Promise<void>} Resolves when the user is successfully logged in, reloads the page, and updates the profile navigation.
+ * @throws {Error} Throws an error if the login fails due to incorrect credentials or other issues.
+ */
+
 export async function loginUser(email, password) {
   try {
     showLoader();

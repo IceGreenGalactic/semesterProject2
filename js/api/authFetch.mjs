@@ -19,6 +19,14 @@ export function headers() {
   };
 }
 
+/**
+ * Performs an authenticated fetch request.
+ * @param {string} url - The URL to fetch.
+ * @param {Object} [options={}] - Additional options for the fetch request.
+ * @returns {Promise<Response>} A promise that resolves to the fetch response.
+ * @throws {Error} If the fetch request fails.
+ */
+
 export async function authFetch(url, options = {}) {
   try {
     const response = await fetch(url, {

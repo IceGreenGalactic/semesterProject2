@@ -1,5 +1,10 @@
 let editModalInstance;
 
+/**
+ * Opens the edit modal with the provided listing data and ID.
+ * @param {object} listingData - The data of the listing to be edited.
+ * @param {string} listingId - The ID of the listing to be edited.
+ */
 export function openEditModal(listingData, listingId) {
   const editListingModal = document.querySelector("#editListingModal");
 
@@ -7,6 +12,7 @@ export function openEditModal(listingData, listingId) {
     const modal = new bootstrap.Modal(editListingModal);
     editModalInstance = modal;
 
+    // Sets the input values to the listing data
     document.getElementById("titleInput").value = listingData.data.title || "";
     document.getElementById("descriptionInput").value = listingData.data.description || "";
     document.getElementById("tagsInput").value = (listingData.data.tags || []).join(", ");

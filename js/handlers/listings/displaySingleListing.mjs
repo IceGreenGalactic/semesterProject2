@@ -2,14 +2,23 @@ import { getListingById } from "../../api/listings/get.mjs";
 import { renderSingleListingTemplate } from "../../templates/singleListing.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 
-function getlistingIdResponseFromUrl() {
+/**
+ * Retrieves the listing ID from the URL parameters.
+ * @returns {string|null} The listing ID if found in the URL parameters, otherwise null.
+ */
+
+function getSingleListings() {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.has("id") ? urlParams.get("id") : null;
 }
 
-// Function to fetch and display single listing
+/**
+ * Fetches and displays a single listing based on the listing ID retrieved from the URL parameters.
+ * Displays an error message if the listing ID is not found or if fetching/displaying the listing fails.
+ * @returns {Promise<void>} A promise that resolves once the single listing is displayed.
+ */
 export async function displaySingleListing() {
-  const listingIdResponse = getlistingIdResponseFromUrl();
+  const listingIdResponse = getSingleListings();
   if (!listingIdResponse) {
     console.error("Listing ID not found in URL parameters");
     showMessage("No listings matching the ID is found");

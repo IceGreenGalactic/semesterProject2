@@ -1,5 +1,10 @@
 import { registerUser } from "../../api/auth/register.mjs";
 
+/**
+ * Attaches a listener to the registration form to handle user registration.
+ * When the form is submitted, it gathers the form data, converts it into
+ * a profile object, and calls the registerUser function to register the user.
+ */
 export function setRegisterFormListener() {
   const form = document.querySelector("#registrationForm");
 

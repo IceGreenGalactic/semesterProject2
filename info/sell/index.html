@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AuctionHouse - How to sell</title>
+
+    <link rel="stylesheet" href="../../dist/css/styles.css" />
+    <script src="https://kit.fontawesome.com/db895f6c4c.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/index.mjs" defer type="module"></script>
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid m-auto">
+          <div class="logo container-fluid col-8 text-center justify-content-center mt-2">
+            <a class="navbar-brand" href="../../">
+              <img src="../../images/auctionHouse_logo.png" alt="AuctionHouse Logo" class="img-fluid m-0 col-4" />
+            </a>
+            <div class="logo-text text-center m-0">
+              <h2>AuctionHouse</h2>
+              <p>-Bidding made easy-</p>
+            </div>
+          </div>
+
+          <button
+            class="navbar-toggler ms-auto"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse col-12" id="navbarNav">
+            <div class="col-12 ms-auto col-sm-3 col-lg-12">
+              <ul class="navbar-nav">
+                <li id="profileNavItem" class="nav-item text-center d-none d-lg-block">
+                  <a id="profileNavLink" class="nav-link m-auto" href="#">
+                    <i class="fas fa-user"></i>
+                    Profile
+                  </a>
+                </li>
+
+                <li class="nav-item text-center d-none d-lg-block">
+                  <a class="nav-link m-auto" href="../../">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                  </a>
+                </li>
+                <!-- Main Dropdown Menu -->
+                <li class="nav-item dropdown d-none d-lg-block">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Menu
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <!-- Nested Dropdown Submenu -->
+
+                    <a class="dropdown-item py-2" href="../../listings/createListing/">
+                      <i class="fas fa-plus-circle"></i>
+                      Create Listing
+                    </a>
+                    <a class="dropdown-item py-2" href="../../listings/allListings/">
+                      <i class="fas fa-list"></i>
+                      Browse Listings
+                    </a>
+
+                    <a class="dropdown-item py-2" href="../../listings/">
+                      <i class="fas fa-list-alt"></i>
+                      Browse by categories
+                    </a>
+
+                    <a
+                      class="dropdown-item dropdown-toggle py-2"
+                      href="#"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#submenu"
+                      aria-expanded="false"
+                      aria-controls="submenu"
+                      onclick="event.stopPropagation();">
+                      <i class="fas fa-handshake"></i>
+                      Buy and Sell
+                    </a>
+                    <div class="collapse ms-5" id="submenu">
+                      <a class="dropdown-item py-2" href="../sell/">How to sell</a>
+                      <a class="dropdown-item py-2" href="../buy/">How to buy</a>
+                      <a class="dropdown-item py-2" href="../pay/">How to pay</a>
+                      <a class="dropdown-item py-2" href="../ship/">How to ship</a>
+                    </div>
+                    <a class="dropdown-item py-2" href="../">
+                      <i class="fas fa-info-circle"></i>
+                      About
+                    </a>
+                    <a class="dropdown-item py-2 logout-link" href="../../">
+                      <i class="fa-solid fa-user-xmark text-start"></i>
+                      Logout
+                    </a>
+                  </div>
+                </li>
+                <!-- Items in navbar for smaller devices -->
+                <li id="profileHamburgerItem" class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a id="profileHamburgerLink" class="nav-link m-auto" href="#">
+                    <i class="fas fa-user"></i>
+                    Profile
+                  </a>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                  </a>
+                </li>
+
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../listings/createListing/">
+                    <i class="fas fa-plus-circle"></i>
+                    Create Listing
+                  </a>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../listings/allListings/">
+                    <i class="fas fa-list"></i>
+                    Browse Listings
+                  </a>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../../listings/">
+                    <i class="fas fa-list-alt"></i>
+                    Browse by categories
+                  </a>
+                </li>
+                <li class="nav-item dropdown border-bottom py-2 d-lg-none">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fas fa-handshake"></i>
+                    Buy and Sell
+                  </a>
+                  <div class="dropdown-menu border-0 bg-light" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item py-2" href="../sell/">How to sell</a>
+                    <a class="dropdown-item py-2" href="../buy/">How to buy</a>
+                    <a class="dropdown-item py-2" href="../pay/">How to pay</a>
+                    <a class="dropdown-item py-2" href="../ship/">How to ship</a>
+                  </div>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto" href="../">
+                    <i class="fas fa-info-circle"></i>
+                    About
+                  </a>
+                </li>
+                <li class="nav-item text-start border-bottom d-lg-none py-2">
+                  <a class="nav-link m-auto logout-link" href="../../">
+                    <i class="fa-solid fa-user-xmark text-start"></i>
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="d-flex flex-column min-vh-100">
+      <div class="container card mt-5 col-10 col-lg-6 m-auto">
+        <div class="card-body col-11 m-auto">
+          <h1 class="mt-4 headline-text text-center">How to Sell</h1>
+          <p>
+            Selling items on AuctionHouse is a straightforward process. Follow these steps to list your items for
+            auction and start earning credits:
+          </p>
+          <ol>
+            <li>
+              <strong>Create Listing:</strong>
+              Begin by creating a new listing. Provide a descriptive title, set a deadline date, and include
+              high-quality images of your item.
+            </li>
+            <li>
+              <strong>Add Details:</strong>
+              Include a detailed description of your item, highlighting its features and condition.
+            </li>
+            <li>
+              <strong>Set Starting Bid:</strong>
+              Determine the starting bid price for your item to initiate bidding.
+            </li>
+            <li>
+              <strong>Monitor Activity:</strong>
+              Keep track of the bidding activity on your listing to gauge interest in your item.
+            </li>
+            <li>
+              <strong>Finalize Sale:</strong>
+              Once the auction ends, the highest bid wins. Follow the provided instructions to complete the transaction
+              and deliver the item to the winning bidder.
+            </li>
+          </ol>
+          <p>
+            By listing your items on AuctionHouse, you'll reach a wide audience of potential buyers and have the
+            opportunity to earn credits for your sales. Start selling today and discover the excitement of connecting
+            with buyers worldwide!
+          </p>
+        </div>
+      </div>
+      <div class="m-auto d-flex">
+        <a href="../../listings/createListing/"><button class="btn btn-primary m-4">Create a listing</button></a>
+      </div>
+      <div class="m-auto text-center my-4">
+        <h2 class="primary-color-text">Not registered yet?</h2>
+        <p>press the link and register a user today</p>
+        <p>
+          <a class="text-secondary" id="registerButton" href="#">Register a user</a>
+        </p>
+      </div>
+    </main>
+    <!-- Registration Modal -->
+    <div
+      class="modal fade"
+      id="registrationModal"
+      tabindex="-1"
+      aria-labelledby="registrationModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title headline-text" id="registrationModalLabel">Register at AuctionHouse</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="registrationForm">
+              <div class="mb-3">
+                <label for="email" class="login-text form-label">Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  required
+                  name="email"
+                  pattern="^[\w\-.]+@stud\.noroff\.no$"
+                  placeholder="Please enter a valid @stud.noroff.no email" />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="login-text form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  required
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password" />
+              </div>
+              <div class="mb-3">
+                <label for="name" class="login-text form-label">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  required
+                  name="name"
+                  placeholder="Enter your username" />
+              </div>
+              <div class="mb-3">
+                <label for="avatar" class="login-text form-label">Avatar</label>
+                <input type="url" class="form-control" id="avatar" name="avatar" placeholder="Enter a URL" />
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary mb-4">Register</button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="text-secondary text-center">
+              <p class="m-0">
+                Already have an account?
+                <a href="#!" class="login-text link text-decoration-none" id="logInLink">Login</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title headline-text" id="loginModalLabel">
+              Login to
+              <br />
+              AuctionHouse
+            </h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="loginForm">
+              <div class="mb-3">
+                <label for="email" class="login-text form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  required
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email" />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="login-text form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  required
+                  placeholder="Enter your password" />
+              </div>
+              <div class="mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" name="rememberMe" id="rememberMe" />
+                  <label class="login-text form-check-label text-secondary" for="rememberMe">Keep me logged in</label>
+                </div>
+                <a href="#!" class="login-text link text-decoration-none">Forgot password?</a>
+              </div>
+              <div class="d-grid my-3">
+                <button type="submit" class="btn btn-primary btn-md">Log in</button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="text-secondary text-center">
+              <p class="m-0">
+                Don't have an account?
+                <a href="#!" class="login-text link text-decoration-none" id="signUpLink">Sign up</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer border-top pt-3">
+      <div class="container">
+        <p>&copy; 2024 AuctionHouse. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
